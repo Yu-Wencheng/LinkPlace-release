@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="760" viewBox="0 0 1500 760" role="img" aria-labelledby="title desc">
+  <title id="title">Grid ablation and legality</title>
+  <desc id="desc">Line chart compares 224-to-448 HPWL ratios and bars show All-greedy legal counts.</desc>
+  <style>text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; fill: #0F172A; }
+    .title { font-size: 27px; font-weight: 700; }
+    .subtitle { font-size: 15px; fill: #475569; }
+    .axis { font-size: 13px; fill: #475569; }
+    .label { font-size: 13px; font-weight: 600; }
+    .small { font-size: 12px; fill: #475569; }
+    .legend { font-size: 13px; font-weight: 600; }</style>
+  <rect width="1500" height="760" fill="#FFFFFF"/>
+  <text x="90.00" y="38.00" class="title" text-anchor="start">Grid-resolution ablation and All-greedy legality</text>
+  <text x="90.00" y="66.00" class="subtitle" text-anchor="start">Top: 224/448 mean HPWL ratio (above 1 means 224 is worse). Bottom: legal All-greedy runs out of five.</text>
+  <line x1="90.00" y1="440.00" x2="1455.00" y2="440.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="444.00" class="axis" text-anchor="end">0.9x</text>
+  <line x1="90.00" y1="385.00" x2="1455.00" y2="385.00" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="78.00" y="389.00" class="axis" text-anchor="end">1.0x</text>
+  <line x1="90.00" y1="330.00" x2="1455.00" y2="330.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="334.00" class="axis" text-anchor="end">1.1x</text>
+  <line x1="90.00" y1="275.00" x2="1455.00" y2="275.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="279.00" class="axis" text-anchor="end">1.2x</text>
+  <line x1="90.00" y1="220.00" x2="1455.00" y2="220.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="224.00" class="axis" text-anchor="end">1.3x</text>
+  <line x1="90.00" y1="165.00" x2="1455.00" y2="165.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="169.00" class="axis" text-anchor="end">1.4x</text>
+  <line x1="90.00" y1="110.00" x2="1455.00" y2="110.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="114.00" class="axis" text-anchor="end">1.5x</text>
+  <polyline points="175.31,363.94 345.94,317.58 516.56,367.72 687.19,347.72 857.81,348.99 1028.44,382.81 1199.06,313.03 1369.69,318.35" fill="none" stroke="#2563EB" stroke-width="3"/>
+  <circle cx="175.31" cy="363.94" r="6.00" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="345.94" cy="317.58" r="6.00" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="516.56" cy="367.72" r="6.00" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="687.19" cy="347.72" r="6.00" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="857.81" cy="348.99" r="6.00" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="1028.44" cy="382.81" r="6.00" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="1199.06" cy="313.03" r="6.00" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="1369.69" cy="318.35" r="6.00" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <polyline points="175.31,361.53 345.94,331.53 516.56,366.65 687.19,352.54 857.81,351.94 1028.44,381.24 1199.06,149.59 1369.69,315.01" fill="none" stroke="#F97316" stroke-width="3"/>
+  <circle cx="175.31" cy="361.53" r="6.00" fill="#F97316" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="345.94" cy="331.53" r="6.00" fill="#F97316" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="516.56" cy="366.65" r="6.00" fill="#F97316" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="687.19" cy="352.54" r="6.00" fill="#F97316" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="857.81" cy="351.94" r="6.00" fill="#F97316" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="1028.44" cy="381.24" r="6.00" fill="#F97316" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="1199.06" cy="149.59" r="6.00" fill="#F97316" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="1369.69" cy="315.01" r="6.00" fill="#F97316" stroke="#FFFFFF" stroke-width="1.5"/>
+  <rect x="110.00" y="87.00" width="18.00" height="12.00" rx="2" fill="#2563EB"/>
+  <text x="135.00" y="97.00" class="legend" text-anchor="start">LinkPlace-C</text>
+  <rect x="265.00" y="87.00" width="18.00" height="12.00" rx="2" fill="#F97316"/>
+  <text x="290.00" y="97.00" class="legend" text-anchor="start">LinkPlace-M</text>
+  <line x1="90.00" y1="670.00" x2="1455.00" y2="670.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="674.00" class="axis" text-anchor="end">0</text>
+  <line x1="90.00" y1="640.00" x2="1455.00" y2="640.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="644.00" class="axis" text-anchor="end">1</text>
+  <line x1="90.00" y1="610.00" x2="1455.00" y2="610.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="614.00" class="axis" text-anchor="end">2</text>
+  <line x1="90.00" y1="580.00" x2="1455.00" y2="580.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="584.00" class="axis" text-anchor="end">3</text>
+  <line x1="90.00" y1="550.00" x2="1455.00" y2="550.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="554.00" class="axis" text-anchor="end">4</text>
+  <line x1="90.00" y1="520.00" x2="1455.00" y2="520.00" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="78.00" y="524.00" class="axis" text-anchor="end">5</text>
+  <rect x="150.31" y="640.00" width="22.00" height="30.00" rx="2" fill="#334155"/>
+  <text x="161.31" y="634.00" class="small" text-anchor="middle">1</text>
+  <rect x="178.31" y="640.00" width="22.00" height="30.00" rx="2" fill="#94A3B8"/>
+  <text x="189.31" y="634.00" class="small" text-anchor="middle">1</text>
+  <text x="193.31" y="697.00" class="label" text-anchor="end" transform="rotate(-35.0 193.31 697.00)">adaptec1</text>
+  <rect x="320.94" y="670.00" width="22.00" height="0.00" rx="2" fill="#334155"/>
+  <text x="331.94" y="664.00" class="small" text-anchor="middle">0</text>
+  <rect x="348.94" y="670.00" width="22.00" height="0.00" rx="2" fill="#94A3B8"/>
+  <text x="359.94" y="664.00" class="small" text-anchor="middle">0</text>
+  <text x="363.94" y="697.00" class="label" text-anchor="end" transform="rotate(-35.0 363.94 697.00)">adaptec2</text>
+  <rect x="491.56" y="670.00" width="22.00" height="0.00" rx="2" fill="#334155"/>
+  <text x="502.56" y="664.00" class="small" text-anchor="middle">0</text>
+  <rect x="519.56" y="670.00" width="22.00" height="0.00" rx="2" fill="#94A3B8"/>
+  <text x="530.56" y="664.00" class="small" text-anchor="middle">0</text>
+  <text x="534.56" y="697.00" class="label" text-anchor="end" transform="rotate(-35.0 534.56 697.00)">adaptec3</text>
+  <rect x="662.19" y="580.00" width="22.00" height="90.00" rx="2" fill="#334155"/>
+  <text x="673.19" y="574.00" class="small" text-anchor="middle">3</text>
+  <rect x="690.19" y="640.00" width="22.00" height="30.00" rx="2" fill="#94A3B8"/>
+  <text x="701.19" y="634.00" class="small" text-anchor="middle">1</text>
+  <text x="705.19" y="697.00" class="label" text-anchor="end" transform="rotate(-35.0 705.19 697.00)">adaptec4</text>
+  <rect x="832.81" y="520.00" width="22.00" height="150.00" rx="2" fill="#334155"/>
+  <text x="843.81" y="514.00" class="small" text-anchor="middle">5</text>
+  <rect x="860.81" y="550.00" width="22.00" height="120.00" rx="2" fill="#94A3B8"/>
+  <text x="871.81" y="544.00" class="small" text-anchor="middle">4</text>
+  <text x="875.81" y="697.00" class="label" text-anchor="end" transform="rotate(-35.0 875.81 697.00)">bigblue1</text>
+  <rect x="1003.44" y="670.00" width="22.00" height="0.00" rx="2" fill="#334155"/>
+  <text x="1014.44" y="664.00" class="small" text-anchor="middle">0</text>
+  <rect x="1031.44" y="670.00" width="22.00" height="0.00" rx="2" fill="#94A3B8"/>
+  <text x="1042.44" y="664.00" class="small" text-anchor="middle">0</text>
+  <text x="1046.44" y="697.00" class="label" text-anchor="end" transform="rotate(-35.0 1046.44 697.00)">bigblue2</text>
+  <rect x="1174.06" y="640.00" width="22.00" height="30.00" rx="2" fill="#334155"/>
+  <text x="1185.06" y="634.00" class="small" text-anchor="middle">1</text>
+  <rect x="1202.06" y="580.00" width="22.00" height="90.00" rx="2" fill="#94A3B8"/>
+  <text x="1213.06" y="574.00" class="small" text-anchor="middle">3</text>
+  <text x="1217.06" y="697.00" class="label" text-anchor="end" transform="rotate(-35.0 1217.06 697.00)">bigblue3</text>
+  <rect x="1344.69" y="550.00" width="22.00" height="120.00" rx="2" fill="#334155"/>
+  <text x="1355.69" y="544.00" class="small" text-anchor="middle">4</text>
+  <rect x="1372.69" y="520.00" width="22.00" height="150.00" rx="2" fill="#94A3B8"/>
+  <text x="1383.69" y="514.00" class="small" text-anchor="middle">5</text>
+  <text x="1387.69" y="697.00" class="label" text-anchor="end" transform="rotate(-35.0 1387.69 697.00)">bigblue4</text>
+  <rect x="1220.00" y="482.00" width="18.00" height="12.00" rx="2" fill="#334155"/>
+  <text x="1245.00" y="492.00" class="legend" text-anchor="start">448 grid</text>
+  <rect x="1340.00" y="482.00" width="18.00" height="12.00" rx="2" fill="#94A3B8"/>
+  <text x="1365.00" y="492.00" class="legend" text-anchor="start">224 grid</text>
+</svg>
