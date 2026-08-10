@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linkplace"
+version = "0.1.0"
+description = "Connectivity-aware macro placement research code"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "matplotlib>=3.5",
+  "numpy>=1.21",
+  "torch>=1.12",
+]
+
+[project.optional-dependencies]
+legacy = ["gym>=0.17,<0.27"]
+test = ["gym>=0.17,<0.27"]
+tensorboard = ["tensorboard>=2.10"]
+
+[project.scripts]
+linkplace = "linkplace.runner:main"
+
+[tool.setuptools.packages.find]
+include = ["linkplace*"]

@@ -1,0 +1,51 @@
+{
+  "missing": [],
+  "naming": {
+    "codeplace": "LinkPlace-C",
+    "monolithic": "LinkPlace-M"
+  },
+  "note": "Machine-local result and source directory columns were intentionally removed.",
+  "schema_version": 1,
+  "tables": [
+    {
+      "output_name": "main_mean_std.csv",
+      "rows": 17,
+      "source_name": "main_mean_std.csv"
+    },
+    {
+      "output_name": "main_seed_results.csv",
+      "rows": 85,
+      "source_name": "main_seed_results.csv"
+    },
+    {
+      "output_name": "grid_ablation_five_seed_mean_std.csv",
+      "rows": 48,
+      "source_name": "grid_ablation_five_seed_mean_std.csv"
+    },
+    {
+      "output_name": "grid_ablation_five_seed_results.csv",
+      "rows": 240,
+      "source_name": "grid_ablation_five_seed_results.csv"
+    },
+    {
+      "output_name": "linkplace_m_iccad2015_mean_std.csv",
+      "rows": 8,
+      "source_name": "monolithic_iccad2015_mean_std.csv"
+    },
+    {
+      "output_name": "linkplace_m_iccad2015_seed_results.csv",
+      "rows": 40,
+      "source_name": "monolithic_iccad2015_seed_results.csv"
+    },
+    {
+      "output_name": "baseline_mean_std.csv",
+      "rows": 24,
+      "source_name": "baseline_mean_std.csv"
+    },
+    {
+      "output_name": "baseline_seed_results.csv",
+      "rows": 24,
+      "source_name": "baseline_seed_results.csv"
+    }
+  ]
+}

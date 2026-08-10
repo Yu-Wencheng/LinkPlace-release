@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local data and experiment outputs
+/datasets/
+/outputs/
+/paper_results/
+/runs/
+/checkpoints/
+/models/
+/tensorboard/
+/third_party/
+
+# Large model/event artifacts anywhere
+*.pt
+*.pth
+*.ckpt
+events.out.tfevents*
+
+# Temporary files
+*.tmp
+*.log
+*.pid

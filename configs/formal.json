@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "methods": {
+    "linkplace-c": "connectivity-decomposed PPO placement",
+    "linkplace-m": "single-policy PPO placement"
+  },
+  "seeds": [999, 1000, 1001, 1002, 1003],
+  "episodes": 1000,
+  "formal_grid": 448,
+  "grid_ablation": [224, 448],
+  "ppo": {
+    "actor_learning_rate": 0.001,
+    "critic_learning_rate": 0.0001,
+    "gamma": 0.95,
+    "clip": 0.2,
+    "batch_size": 64,
+    "update_epochs": 10,
+    "episodes_per_update": 5
+  },
+  "ispd2005": [
+    "adaptec1", "adaptec2", "adaptec3", "adaptec4",
+    "bigblue1", "bigblue2", "bigblue3", "bigblue4"
+  ],
+  "iccad2015": [
+    "superblue1", "superblue3", "superblue4", "superblue5",
+    "superblue7", "superblue10", "superblue16", "superblue18"
+  ],
+  "additional": ["ariane"],
+  "result_root": "outputs/formal"
+}
