@@ -446,7 +446,7 @@ def markdown_section(
         "<!-- README_RESULTS:BEGIN -->",
         "## Detailed experimental results",
         "",
-        "This section is generated from the versioned CSV files under [`artifacts/tables/`](artifacts/tables/) by [`tools/render_readme_results.py`](tools/render_readme_results.py). It intentionally exposes more numerical detail than the compact paper tables. All reported placements use the same CompRes legality/HPWL evaluator; lower HPWL and RUDY are better. `±` denotes the sample standard deviation across seeds. Absolute values should be compared within a circuit, not across unrelated benchmarks with different coordinate scales.",
+        "This section is generated from the archived server-run CSV records under [`artifacts/tables/`](artifacts/tables/) by [`tools/render_readme_results.py`](tools/render_readme_results.py). It intentionally exposes more numerical detail than the compact paper tables. All reported placements use the same CompRes legality/HPWL evaluator; lower HPWL and RUDY are better. `±` denotes the sample standard deviation across seeds. Absolute values should be compared within a circuit, not across unrelated benchmarks with different coordinate scales.",
         "",
         "### Coverage and protocol",
         "",

@@ -56,7 +56,7 @@ python -m linkplace.runner --cache-root datasets/cache inspect adaptec1
 <!-- README_RESULTS:BEGIN -->
 ## Detailed experimental results
 
-This section is generated from the versioned CSV files under [`artifacts/tables/`](artifacts/tables/) by [`tools/render_readme_results.py`](tools/render_readme_results.py). It intentionally exposes more numerical detail than the compact paper tables. All reported placements use the same CompRes legality/HPWL evaluator; lower HPWL and RUDY are better. `±` denotes the sample standard deviation across seeds. Absolute values should be compared within a circuit, not across unrelated benchmarks with different coordinate scales.
+This section is generated from the archived server-run CSV records under [`artifacts/tables/`](artifacts/tables/) by [`tools/render_readme_results.py`](tools/render_readme_results.py). It intentionally exposes more numerical detail than the compact paper tables. All reported placements use the same CompRes legality/HPWL evaluator; lower HPWL and RUDY are better. `±` denotes the sample standard deviation across seeds. Absolute values should be compared within a circuit, not across unrelated benchmarks with different coordinate scales.
 
 ### Coverage and protocol
 
@@ -197,16 +197,16 @@ are ignored. Large immutable artifacts should be published separately (for
 example, an institutional repository or Zenodo) with SHA-256 manifests and a
 versioned DOI.
 
-## Release limitations
+## Publication blockers
 
-This public snapshot retains the following limitations:
+Before making this repository public:
 
 1. Resolve the MaskPlace-derived code identified in
    `THIRD_PARTY_NOTICES.md`. The audited MaskPlace revision has no explicit
    license, so public redistribution requires written permission or independent
    replacement code before choosing a repository-wide license.
-2. Add the final author list, paper title, and DOI to a valid `CITATION.cff`
-   when the corresponding metadata is available.
+2. Add the final author list, repository URL, paper title, and DOI to a valid
+   `CITATION.cff`.
 3. Verify benchmark redistribution terms; the current release intentionally
    excludes benchmark data.
 
