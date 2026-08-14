@@ -45,20 +45,10 @@ PAPER_ISPD_SUBSETS = {
 }
 
 PAPER_ICCAD_REFERENCES = {
-    "DREAMPlace": ["2.53", "15.19", "3.44", "21.36", "5.09", "12.99", "2.66", "1.02"],
     "WireMask-EA (1k)": ["1.37", "4.40", "2.11", "11.00", "2.86", "1.18", "2.85", "1.46"],
     "EfficientPlace (1k)": ["1.26", "3.81", "1.99", "9.70", "2.86", "0.93", "2.79", "1.12"],
     "EGPlace (1k)": ["1.31", "3.22", "1.91", "8.62", "2.90", "1.00", "2.03", "0.96"],
 }
-
-PAPER_DREAMPLACE = [
-    ("adaptec1", "543", "1.22", "1.10", "9.93", "4926.845 / 3.721", "5.569 / 2.526"),
-    ("adaptec2", "566", "1.30", "1.11", "15.06", "4187.256 / 4.842", "4.406 / 2.694"),
-    ("adaptec3", "723", "3.59", "2.50", "30.29", "4774.029 / 5.144", "5.426 / 2.872"),
-    ("adaptec4", "1329", "3.11", "2.54", "18.29", "5289.280 / 4.388", "5.917 / 2.744"),
-    ("bigblue1", "560", "1.27", "1.03", "19.21", "6540.863 / 5.240", "4.943 / 3.374"),
-    ("bigblue3", "1298", "6.56", "4.77", "27.24", "9516.528 / 5.616", "7.576 / 3.801"),
-]
 
 COLORS = {
     "linkplace-c": "#2563EB",
@@ -666,24 +656,9 @@ def markdown_section(
         "",
         "LinkPlace-C has lower mean HPWL than LinkPlace-M on five of eight circuits at both resolutions. All-greedy produces 14/40 legal runs per grid; all 52 failed seed-level trials are retained as failures rather than converted into artificial HPWL values.",
         "",
-        "### Mixed-size placement with DREAMPlace",
+        "### Best legal mixed-size placements",
         "",
-        "The best successful LinkPlace-C macro layout initializes DREAMPlace 4.1.0 while selected macro coordinates remain fixed. Full-design HPWL is scaled by `1e8`.",
-        "",
-        "| Circuit | Fixed macros | HPWL before | HPWL after | Reduction | Peak RUDY before / after | Top-5% before / after |",
-        "|---|---:|---:|---:|---:|---:|---:|",
-    ]
-    for benchmark, fixed, before, after, reduction, peak, top5 in PAPER_DREAMPLACE:
-        output.append(f"| {benchmark} | {fixed} | {before} | {after} | {reduction}% | {peak} | {top5} |")
-    output += [
-        "",
-        "[![Final LinkPlace-C-initialized DREAMPlace layouts](assets/paper/dreamplace_final_layouts.png)](assets/paper/dreamplace_final_layouts.png)",
-        "",
-        "**Paper figure — six completed mixed-size layouts.** Full-design HPWL decreases by 9.93–30.29% (about 20.0% unweighted mean), with zero measured fixed-macro coordinate drift.",
-        "",
-        "#### Downloadable best legal mixed-size placements",
-        "",
-        "The archives below contain the best legal full-design placement obtained for each completed circuit. Values are the exact physical-coordinate MacroHPWL after DREAMPlace 4.1.0 standard-cell placement.",
+        "The table reports the best legal full-design placement obtained for each completed circuit. Values are the exact physical-coordinate MacroHPWL after DREAMPlace 4.1.0 standard-cell placement, and each archive contains the final placement and its LinkPlace macro initialization.",
         "",
         "| Circuit | LinkPlace variant | Macro seed | Final full-design HPWL | Placement package |",
         "|---|---|---:|---:|---|",
