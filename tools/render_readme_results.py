@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TABLES = ROOT / "artifacts" / "tables"
+MIXED_SIZE_BEST = ROOT / "artifacts" / "mixed_size_best" / "summary.csv"
 FIGURES = ROOT / "assets" / "results"
 README = ROOT / "README.md"
 
@@ -74,6 +75,11 @@ COLORS = {
 
 def rows(name: str) -> list[dict[str, str]]:
     with (TABLES / name).open(newline="", encoding="utf-8") as stream:
+        return list(csv.DictReader(stream))
+
+
+def rows_from(path: Path) -> list[dict[str, str]]:
+    with path.open(newline="", encoding="utf-8") as stream:
         return list(csv.DictReader(stream))
 
 
@@ -503,6 +509,7 @@ def markdown_section(
     iccad_m_seeds: list[dict[str, str]],
     baseline_summary: list[dict[str, str]],
     baseline_seeds: list[dict[str, str]],
+    mixed_size_best: list[dict[str, str]],
 ) -> str:
     main = indexed(main_summary, "benchmark")
     grid = indexed(grid_summary, "grid", "benchmark", "variant")
@@ -674,6 +681,24 @@ def markdown_section(
         "",
         "**Paper figure — six completed mixed-size layouts.** Full-design HPWL decreases by 9.93–30.29% (about 20.0% unweighted mean), with zero measured fixed-macro coordinate drift.",
         "",
+        "#### Downloadable best legal mixed-size placements",
+        "",
+        "The archives below contain the best legal full-design placement obtained for each completed circuit. Values are the exact physical-coordinate MacroHPWL after DREAMPlace 4.1.0 standard-cell placement.",
+        "",
+        "| Circuit | LinkPlace variant | Macro seed | Final full-design HPWL | Placement package |",
+        "|---|---|---:|---:|---|",
+    ]
+    for row in mixed_size_best:
+        hpwl = f'{int(row["final_full_design_hpwl"]):,}'
+        package = row["package"]
+        output.append(
+            f'| {row["circuit"]} | {row["linkplace_variant"]} | {row["macro_seed"]} | '
+            f'{hpwl} | [download](artifacts/mixed_size_best/{package}) |'
+        )
+    output += [
+        "",
+        "[Machine-readable summary](artifacts/mixed_size_best/summary.csv) · [SHA-256 checksums](artifacts/mixed_size_best/SHA256SUMS)",
+        "",
         "## Additional server results not shown in the paper",
         "",
         "The following views expose server records that are too detailed for the manuscript: exact per-seed outcomes, same-code official-baseline comparisons, stochastic stability, and additional normalized plots. They do not replace the paper tables above.",
@@ -786,6 +811,7 @@ def main() -> int:
     iccad_m_seeds = rows("linkplace_m_iccad2015_seed_results.csv")
     baseline_summary = rows("baseline_mean_std.csv")
     baseline_seeds = rows("baseline_seed_results.csv")
+    mixed_size_best = rows_from(MIXED_SIZE_BEST)
 
     validate_inputs(
         main_summary,
@@ -807,7 +833,17 @@ def main() -> int:
     for path, content in figures.items():
         write_or_check(path, content, check)
 
-    section = markdown_section(main_summary, main_seeds, grid_summary, grid_seeds, iccad_m_summary, iccad_m_seeds, baseline_summary, baseline_seeds)
+    section = markdown_section(
+        main_summary,
+        main_seeds,
+        grid_summary,
+        grid_seeds,
+        iccad_m_summary,
+        iccad_m_seeds,
+        baseline_summary,
+        baseline_seeds,
+        mixed_size_best,
+    )
     update_readme(section, check)
     action = "verified" if check else "wrote"
     print(f"{action} {len(figures)} SVG figures and the generated README result section")

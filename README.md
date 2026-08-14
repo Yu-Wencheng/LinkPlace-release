@@ -193,6 +193,21 @@ The best successful LinkPlace-C macro layout initializes DREAMPlace 4.1.0 while 
 
 **Paper figure — six completed mixed-size layouts.** Full-design HPWL decreases by 9.93–30.29% (about 20.0% unweighted mean), with zero measured fixed-macro coordinate drift.
 
+#### Downloadable best legal mixed-size placements
+
+The archives below contain the best legal full-design placement obtained for each completed circuit. Values are the exact physical-coordinate MacroHPWL after DREAMPlace 4.1.0 standard-cell placement.
+
+| Circuit | LinkPlace variant | Macro seed | Final full-design HPWL | Placement package |
+|---|---|---:|---:|---|
+| adaptec1 | LinkPlace-C | 999 | 70,851,633 | [download](artifacts/mixed_size_best/adaptec1.zip) |
+| adaptec2 | LinkPlace-C | 999 | 93,710,386 | [download](artifacts/mixed_size_best/adaptec2.zip) |
+| adaptec3 | LinkPlace-C | 1002 | 138,080,476 | [download](artifacts/mixed_size_best/adaptec3.zip) |
+| adaptec4 | LinkPlace-C | 1000 | 150,406,856 | [download](artifacts/mixed_size_best/adaptec4.zip) |
+| bigblue1 | LinkPlace-M | 1000 | 84,204,736 | [download](artifacts/mixed_size_best/bigblue1.zip) |
+| bigblue3 | LinkPlace-C | 1002 | 274,468,869 | [download](artifacts/mixed_size_best/bigblue3.zip) |
+
+[Machine-readable summary](artifacts/mixed_size_best/summary.csv) · [SHA-256 checksums](artifacts/mixed_size_best/SHA256SUMS)
+
 ## Additional server results not shown in the paper
 
 The following views expose server records that are too detailed for the manuscript: exact per-seed outcomes, same-code official-baseline comparisons, stochastic stability, and additional normalized plots. They do not replace the paper tables above.
