@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1500" height="970" viewBox="0 0 1500 970" role="img" aria-labelledby="title desc">
-  <title id="title">Five-run stability heatmap</title>
-  <desc id="desc">Heatmap shows run-level HPWL deviations from each method and circuit mean.</desc>
+  <title id="title">Five-seed stability heatmap</title>
+  <desc id="desc">Heatmap shows seed-level HPWL deviations from each method and circuit mean.</desc>
   <style>text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; fill: #0F172A; }
     .title { font-size: 27px; font-weight: 700; }
     .subtitle { font-size: 15px; fill: #475569; }
@@ -10,14 +10,14 @@
     .small { font-size: 12px; fill: #475569; }
     .legend { font-size: 13px; font-weight: 600; }</style>
   <rect width="1500" height="970" fill="#FFFFFF"/>
-  <text x="55.00" y="38.00" class="title" text-anchor="start">Five-run HPWL stability</text>
-  <text x="55.00" y="66.00" class="subtitle" text-anchor="start">Each cell is one run&#x27;s deviation from that method/circuit mean. Common color scale: ±25%.</text>
+  <text x="55.00" y="38.00" class="title" text-anchor="start">Five-seed HPWL stability</text>
+  <text x="55.00" y="66.00" class="subtitle" text-anchor="start">Each cell is the seed&#x27;s deviation from that method/circuit mean. Common color scale: ±25%.</text>
   <text x="40.00" y="101.00" class="label" text-anchor="start">LinkPlace-C · 17 circuits · 85 runs</text>
-  <text x="208.00" y="116.00" class="label" text-anchor="middle">Run 1</text>
-  <text x="300.00" y="116.00" class="label" text-anchor="middle">Run 2</text>
-  <text x="392.00" y="116.00" class="label" text-anchor="middle">Run 3</text>
-  <text x="484.00" y="116.00" class="label" text-anchor="middle">Run 4</text>
-  <text x="576.00" y="116.00" class="label" text-anchor="middle">Run 5</text>
+  <text x="208.00" y="116.00" class="label" text-anchor="middle">999</text>
+  <text x="300.00" y="116.00" class="label" text-anchor="middle">1000</text>
+  <text x="392.00" y="116.00" class="label" text-anchor="middle">1001</text>
+  <text x="484.00" y="116.00" class="label" text-anchor="middle">1002</text>
+  <text x="576.00" y="116.00" class="label" text-anchor="middle">1003</text>
   <text x="152.00" y="155.00" class="label" text-anchor="end">adaptec1</text>
   <rect x="162.00" y="128.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
   <text x="206.00" y="154.00" class="small" text-anchor="middle">+0.2%</text>
@@ -205,12 +205,12 @@
   <text x="482.00" y="842.00" class="small" text-anchor="middle">+0.8%</text>
   <rect x="530.00" y="816.00" width="88.00" height="39.00" rx="3" fill="#FEE2CF"/>
   <text x="574.00" y="842.00" class="small" text-anchor="middle">+0.9%</text>
-  <text x="790.00" y="101.00" class="label" text-anchor="start">LinkPlace-M · 16 circuits · 80 public run records</text>
-  <text x="958.00" y="116.00" class="label" text-anchor="middle">Run 1</text>
-  <text x="1050.00" y="116.00" class="label" text-anchor="middle">Run 2</text>
-  <text x="1142.00" y="116.00" class="label" text-anchor="middle">Run 3</text>
-  <text x="1234.00" y="116.00" class="label" text-anchor="middle">Run 4</text>
-  <text x="1326.00" y="116.00" class="label" text-anchor="middle">Run 5</text>
+  <text x="790.00" y="101.00" class="label" text-anchor="start">LinkPlace-M · 16 circuits · 80 public seed records</text>
+  <text x="958.00" y="116.00" class="label" text-anchor="middle">999</text>
+  <text x="1050.00" y="116.00" class="label" text-anchor="middle">1000</text>
+  <text x="1142.00" y="116.00" class="label" text-anchor="middle">1001</text>
+  <text x="1234.00" y="116.00" class="label" text-anchor="middle">1002</text>
+  <text x="1326.00" y="116.00" class="label" text-anchor="middle">1003</text>
   <text x="902.00" y="155.00" class="label" text-anchor="end">adaptec1</text>
   <rect x="912.00" y="128.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
   <text x="956.00" y="154.00" class="small" text-anchor="middle">+0.2%</text>
