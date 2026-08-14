@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use LinkPlace, please cite this software and the accompanying paper."
+title: "LinkPlace: Connectivity-Aware Reinforcement Learning for Macro Placement"
+type: software
+authors:
+  - family-names: Yu
+    given-names: Wencheng
+    affiliation: "School of Cyberspace Security, Hangzhou Dianzi University"
+    email: 246270152@hdu.edu.cn
+  - family-names: Ran
+    given-names: Yunlong
+    affiliation: "School of Computer Science, Hangzhou Dianzi University"
+    email: 252050340@hdu.edu.cn
+  - family-names: Fan
+    given-names: Lingyan
+    affiliation: "Microelectronics Research Institute, Hangzhou Dianzi University"
+    email: fanlingyan@hdu.edu.cn
+  - family-names: Liu
+    given-names: Hailuan
+    affiliation: "Microelectronics Research Institute, Hangzhou Dianzi University"
+    email: hailuanliu@hotmail.com
+  - family-names: Feng
+    given-names: Guorui
+    affiliation: "School of Communication and Information Engineering, Shanghai University"
+    email: grfeng@shu.edu.cn
+repository-code: "https://github.com/Yu-Wencheng/LinkPlace-release"
+url: "https://github.com/Yu-Wencheng/LinkPlace-release"
+version: 0.1.0
+date-released: 2026-08-15
+keywords:
+  - macro placement
+  - reinforcement learning
+  - electronic design automation
+  - physical design

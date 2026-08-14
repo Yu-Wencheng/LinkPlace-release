@@ -38,6 +38,16 @@
       "source_name": "monolithic_iccad2015_seed_results.csv"
     },
     {
+      "output_name": "linkplace_m_ariane_mean_std.csv",
+      "rows": 1,
+      "source_name": "ablation/monolithic/ariane/seed-*/result.json"
+    },
+    {
+      "output_name": "linkplace_m_ariane_seed_results.csv",
+      "rows": 5,
+      "source_name": "ablation/monolithic/ariane/seed-*/result.json"
+    },
+    {
       "output_name": "baseline_mean_std.csv",
       "rows": 24,
       "source_name": "baseline_mean_std.csv"

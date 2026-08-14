@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1500" height="650" viewBox="0 0 1500 650" role="img" aria-labelledby="title desc">
   <title id="title">ISPD2005 normalized HPWL comparison</title>
-  <desc id="desc">Grouped bars compare CompRes MacroHPWL ratios against the LinkPlace-C five-seed mean.</desc>
+  <desc id="desc">Grouped bars compare MacroHPWL ratios against the LinkPlace-C five-seed mean.</desc>
   <style>text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; fill: #0F172A; }
     .title { font-size: 27px; font-weight: 700; }
     .subtitle { font-size: 15px; fill: #475569; }
@@ -10,7 +10,7 @@
     .small { font-size: 12px; fill: #475569; }
     .legend { font-size: 13px; font-weight: 600; }</style>
   <rect width="1500" height="650" fill="#FFFFFF"/>
-  <text x="82.00" y="38.00" class="title" text-anchor="start">ISPD2005 CompRes MacroHPWL relative to LinkPlace-C</text>
+  <text x="82.00" y="38.00" class="title" text-anchor="start">ISPD2005 MacroHPWL relative to LinkPlace-C</text>
   <text x="82.00" y="66.00" class="subtitle" text-anchor="start">Five-seed means for LinkPlace; official baselines are single seed 1000. Lower is better.</text>
   <line x1="82.00" y1="505.00" x2="1465.00" y2="505.00" stroke="#CBD5E1" stroke-width="1"/>
   <text x="70.00" y="509.00" class="axis" text-anchor="end">0.0x</text>

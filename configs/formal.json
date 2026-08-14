@@ -5,7 +5,8 @@
     "linkplace-m": "single-policy PPO placement"
   },
   "seeds": [999, 1000, 1001, 1002, 1003],
-  "episodes": 1000,
+  "placement_epochs": 1000,
+  "placement_epoch_cli_option": "--episodes",
   "formal_grid": 448,
   "grid_ablation": [224, 448],
   "ppo": {
@@ -15,7 +16,7 @@
     "clip": 0.2,
     "batch_size": 64,
     "update_epochs": 10,
-    "episodes_per_update": 5
+    "placement_epochs_per_update": 5
   },
   "ispd2005": [
     "adaptec1", "adaptec2", "adaptec3", "adaptec4",

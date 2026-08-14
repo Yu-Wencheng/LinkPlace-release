@@ -11,7 +11,7 @@
     .legend { font-size: 13px; font-weight: 600; }</style>
   <rect width="1400" height="850" fill="#FFFFFF"/>
   <text x="180.00" y="38.00" class="title" text-anchor="start">LinkPlace-M RUDY change relative to LinkPlace-C</text>
-  <text x="180.00" y="66.00" class="subtitle" text-anchor="start">Matched five-seed means on 16 circuits. Negative values favor LinkPlace-M; lower RUDY is better.</text>
+  <text x="180.00" y="66.00" class="subtitle" text-anchor="start">Matched five-seed means on 17 circuits. Negative values favor LinkPlace-M; lower RUDY is better.</text>
   <line x1="180.00" y1="110.00" x2="180.00" y2="780.00" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
   <text x="180.00" y="806.00" class="axis" text-anchor="middle">-30%</text>
   <line x1="372.50" y1="110.00" x2="372.50" y2="780.00" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
@@ -26,90 +26,95 @@
   <text x="1142.50" y="806.00" class="axis" text-anchor="middle">+20%</text>
   <line x1="1335.00" y1="110.00" x2="1335.00" y2="780.00" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
   <text x="1335.00" y="806.00" class="axis" text-anchor="middle">+30%</text>
-  <text x="164.00" y="134.94" class="label" text-anchor="end">adaptec1</text>
-  <line x1="757.50" y1="124.94" x2="698.97" y2="124.94" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="698.97" cy="124.94" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="136.94" x2="756.23" y2="136.94" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="751.23" y="131.94" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="176.81" class="label" text-anchor="end">adaptec2</text>
-  <line x1="757.50" y1="166.81" x2="1138.27" y2="166.81" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="1138.27" cy="166.81" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="178.81" x2="720.66" y2="178.81" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="715.66" y="173.81" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="218.69" class="label" text-anchor="end">adaptec3</text>
-  <line x1="757.50" y1="208.69" x2="711.58" y2="208.69" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="711.58" cy="208.69" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="220.69" x2="762.60" y2="220.69" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="757.60" y="215.69" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="260.56" class="label" text-anchor="end">adaptec4</text>
-  <line x1="757.50" y1="250.56" x2="713.83" y2="250.56" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="713.83" cy="250.56" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="262.56" x2="840.16" y2="262.56" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="835.16" y="257.56" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="302.44" class="label" text-anchor="end">bigblue1</text>
-  <line x1="757.50" y1="292.44" x2="755.31" y2="292.44" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="755.31" cy="292.44" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="304.44" x2="736.33" y2="304.44" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="731.33" y="299.44" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="344.31" class="label" text-anchor="end">bigblue2</text>
-  <line x1="757.50" y1="334.31" x2="840.21" y2="334.31" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="840.21" cy="334.31" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="346.31" x2="774.39" y2="346.31" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="769.39" y="341.31" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="386.19" class="label" text-anchor="end">bigblue3</text>
-  <line x1="757.50" y1="376.19" x2="726.20" y2="376.19" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="726.20" cy="376.19" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="388.19" x2="813.07" y2="388.19" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="808.07" y="383.19" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="428.06" class="label" text-anchor="end">bigblue4</text>
-  <line x1="50.00" y1="445.00" x2="1335.00" y2="445.00" stroke="#94A3B8" stroke-width="2"/>
-  <line x1="757.50" y1="418.06" x2="549.01" y2="418.06" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="549.01" cy="418.06" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="430.06" x2="773.12" y2="430.06" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="768.12" y="425.06" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="469.94" class="label" text-anchor="end">superblue1</text>
-  <line x1="757.50" y1="459.94" x2="779.63" y2="459.94" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="779.63" cy="459.94" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="471.94" x2="625.99" y2="471.94" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="620.99" y="466.94" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="511.81" class="label" text-anchor="end">superblue3</text>
-  <line x1="757.50" y1="501.81" x2="505.44" y2="501.81" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="505.44" cy="501.81" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="513.81" x2="796.59" y2="513.81" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="791.59" y="508.81" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="553.69" class="label" text-anchor="end">superblue4</text>
-  <line x1="757.50" y1="543.69" x2="1155.49" y2="543.69" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="1155.49" cy="543.69" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="555.69" x2="725.85" y2="555.69" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="720.85" y="550.69" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="595.56" class="label" text-anchor="end">superblue5</text>
-  <line x1="757.50" y1="585.56" x2="799.82" y2="585.56" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="799.82" cy="585.56" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="597.56" x2="763.75" y2="597.56" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="758.75" y="592.56" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="637.44" class="label" text-anchor="end">superblue7</text>
-  <line x1="757.50" y1="627.44" x2="666.36" y2="627.44" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="666.36" cy="627.44" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="639.44" x2="788.81" y2="639.44" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="783.81" y="634.44" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="679.31" class="label" text-anchor="end">superblue10</text>
-  <line x1="757.50" y1="669.31" x2="706.42" y2="669.31" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="706.42" cy="669.31" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="681.31" x2="759.50" y2="681.31" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="754.50" y="676.31" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="721.19" class="label" text-anchor="end">superblue16</text>
-  <line x1="757.50" y1="711.19" x2="1070.31" y2="711.19" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="1070.31" cy="711.19" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="723.19" x2="699.95" y2="723.19" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="694.95" y="718.19" width="10.00" height="10.00" rx="1" fill="#F97316"/>
-  <text x="164.00" y="763.06" class="label" text-anchor="end">superblue18</text>
-  <line x1="757.50" y1="753.06" x2="1137.10" y2="753.06" stroke="#2563EB" stroke-width="2.2"/>
-  <circle cx="1137.10" cy="753.06" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
-  <line x1="757.50" y1="765.06" x2="790.90" y2="765.06" stroke="#F97316" stroke-width="2.2"/>
-  <rect x="785.90" y="760.06" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="133.71" class="label" text-anchor="end">adaptec1</text>
+  <line x1="757.50" y1="123.71" x2="698.97" y2="123.71" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="698.97" cy="123.71" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="135.71" x2="756.23" y2="135.71" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="751.23" y="130.71" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="173.12" class="label" text-anchor="end">adaptec2</text>
+  <line x1="757.50" y1="163.12" x2="1138.27" y2="163.12" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="1138.27" cy="163.12" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="175.12" x2="720.66" y2="175.12" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="715.66" y="170.12" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="212.53" class="label" text-anchor="end">adaptec3</text>
+  <line x1="757.50" y1="202.53" x2="711.58" y2="202.53" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="711.58" cy="202.53" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="214.53" x2="762.60" y2="214.53" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="757.60" y="209.53" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="251.94" class="label" text-anchor="end">adaptec4</text>
+  <line x1="757.50" y1="241.94" x2="713.83" y2="241.94" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="713.83" cy="241.94" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="253.94" x2="840.16" y2="253.94" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="835.16" y="248.94" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="291.35" class="label" text-anchor="end">bigblue1</text>
+  <line x1="757.50" y1="281.35" x2="755.31" y2="281.35" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="755.31" cy="281.35" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="293.35" x2="736.33" y2="293.35" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="731.33" y="288.35" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="330.76" class="label" text-anchor="end">bigblue2</text>
+  <line x1="757.50" y1="320.76" x2="840.21" y2="320.76" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="840.21" cy="320.76" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="332.76" x2="774.39" y2="332.76" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="769.39" y="327.76" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="370.18" class="label" text-anchor="end">bigblue3</text>
+  <line x1="757.50" y1="360.18" x2="726.20" y2="360.18" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="726.20" cy="360.18" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="372.18" x2="813.07" y2="372.18" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="808.07" y="367.18" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="409.59" class="label" text-anchor="end">bigblue4</text>
+  <line x1="50.00" y1="425.29" x2="1335.00" y2="425.29" stroke="#94A3B8" stroke-width="2"/>
+  <line x1="757.50" y1="399.59" x2="549.01" y2="399.59" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="549.01" cy="399.59" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="411.59" x2="773.12" y2="411.59" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="768.12" y="406.59" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="449.00" class="label" text-anchor="end">ariane</text>
+  <line x1="50.00" y1="464.71" x2="1335.00" y2="464.71" stroke="#94A3B8" stroke-width="2"/>
+  <line x1="757.50" y1="439.00" x2="732.85" y2="439.00" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="732.85" cy="439.00" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="451.00" x2="577.95" y2="451.00" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="572.95" y="446.00" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="488.41" class="label" text-anchor="end">superblue1</text>
+  <line x1="757.50" y1="478.41" x2="779.63" y2="478.41" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="779.63" cy="478.41" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="490.41" x2="625.99" y2="490.41" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="620.99" y="485.41" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="527.82" class="label" text-anchor="end">superblue3</text>
+  <line x1="757.50" y1="517.82" x2="505.44" y2="517.82" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="505.44" cy="517.82" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="529.82" x2="796.59" y2="529.82" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="791.59" y="524.82" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="567.24" class="label" text-anchor="end">superblue4</text>
+  <line x1="757.50" y1="557.24" x2="1155.49" y2="557.24" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="1155.49" cy="557.24" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="569.24" x2="725.85" y2="569.24" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="720.85" y="564.24" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="606.65" class="label" text-anchor="end">superblue5</text>
+  <line x1="757.50" y1="596.65" x2="799.82" y2="596.65" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="799.82" cy="596.65" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="608.65" x2="763.75" y2="608.65" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="758.75" y="603.65" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="646.06" class="label" text-anchor="end">superblue7</text>
+  <line x1="757.50" y1="636.06" x2="666.36" y2="636.06" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="666.36" cy="636.06" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="648.06" x2="788.81" y2="648.06" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="783.81" y="643.06" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="685.47" class="label" text-anchor="end">superblue10</text>
+  <line x1="757.50" y1="675.47" x2="706.42" y2="675.47" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="706.42" cy="675.47" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="687.47" x2="759.50" y2="687.47" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="754.50" y="682.47" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="724.88" class="label" text-anchor="end">superblue16</text>
+  <line x1="757.50" y1="714.88" x2="1070.31" y2="714.88" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="1070.31" cy="714.88" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="726.88" x2="699.95" y2="726.88" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="694.95" y="721.88" width="10.00" height="10.00" rx="1" fill="#F97316"/>
+  <text x="164.00" y="764.29" class="label" text-anchor="end">superblue18</text>
+  <line x1="757.50" y1="754.29" x2="1137.10" y2="754.29" stroke="#2563EB" stroke-width="2.2"/>
+  <circle cx="1137.10" cy="754.29" r="5.50" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="757.50" y1="766.29" x2="790.90" y2="766.29" stroke="#F97316" stroke-width="2.2"/>
+  <rect x="785.90" y="761.29" width="10.00" height="10.00" rx="1" fill="#F97316"/>
   <circle cx="215.00" cy="91.00" r="6.00" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
   <text x="230.00" y="96.00" class="legend" text-anchor="start">Peak RUDY</text>
   <rect x="360.00" y="85.00" width="12.00" height="12.00" rx="1" fill="#F97316"/>
   <text x="380.00" y="96.00" class="legend" text-anchor="start">Top-5% mean</text>
-  <text x="1335.00" y="96.00" class="small" text-anchor="end">Ariane excluded: LinkPlace-M seed CSV is not in this public snapshot.</text>
 </svg>

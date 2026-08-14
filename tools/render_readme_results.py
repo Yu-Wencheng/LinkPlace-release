@@ -164,6 +164,8 @@ def validate_inputs(
     grid_seeds: list[dict[str, str]],
     iccad_m_summary: list[dict[str, str]],
     iccad_m_seeds: list[dict[str, str]],
+    ariane_m_summary: list[dict[str, str]],
+    ariane_m_seeds: list[dict[str, str]],
     baseline_summary: list[dict[str, str]],
     baseline_seeds: list[dict[str, str]],
 ) -> None:
@@ -216,6 +218,18 @@ def validate_inputs(
         {("448", benchmark, "linkplace-m", seed) for benchmark in ICCAD for seed in seed_strings},
         "LinkPlace-M ICCAD2015 seeds",
     )
+    require_exact_keys(
+        ariane_m_summary,
+        ("grid", "benchmark", "variant"),
+        {("448", "ariane", "linkplace-m")},
+        "LinkPlace-M Ariane summary",
+    )
+    require_exact_keys(
+        ariane_m_seeds,
+        ("grid", "benchmark", "variant", "seed"),
+        {("448", "ariane", "linkplace-m", seed) for seed in seed_strings},
+        "LinkPlace-M Ariane seeds",
+    )
     baseline_methods = ("maskplace", "wiremask", "efficientplace")
     require_exact_keys(
         baseline_summary,
@@ -253,7 +267,7 @@ def render_ispd_comparison(grid_summary: list[dict[str, str]], baselines: list[d
     maximum = max(value for value in values.values() if value is not None)
     y_max = math.ceil((maximum + 0.1) * 2) / 2
     body = [
-        text(left, 38, "ISPD2005 CompRes MacroHPWL relative to LinkPlace-C", css="title"),
+        text(left, 38, "ISPD2005 MacroHPWL relative to LinkPlace-C", css="title"),
         text(left, 66, "Five-seed means for LinkPlace; official baselines are single seed 1000. Lower is better.", css="subtitle"),
     ]
     for tick in range(int(y_max * 2) + 1):
@@ -280,7 +294,7 @@ def render_ispd_comparison(grid_summary: list[dict[str, str]], baselines: list[d
         body += [rect(legend_x, legend_y - 13, 18, 12, fill=COLORS[method], radius=2), text(legend_x + 25, legend_y - 2, label, css="legend")]
         legend_x += 260
     body += [line(width - 160, legend_y - 12, width - 146, legend_y + 2, stroke=COLORS["failure"], width=2), line(width - 160, legend_y + 2, width - 146, legend_y - 12, stroke=COLORS["failure"], width=2), text(width - 138, legend_y - 2, "technical failure", css="legend")]
-    return svg_document(width, height, "ISPD2005 normalized HPWL comparison", "Grouped bars compare CompRes MacroHPWL ratios against the LinkPlace-C five-seed mean.", body)
+    return svg_document(width, height, "ISPD2005 normalized HPWL comparison", "Grouped bars compare MacroHPWL ratios against the LinkPlace-C five-seed mean.", body)
 
 
 def render_grid_ablation(grid_summary: list[dict[str, str]]) -> str:
@@ -343,12 +357,21 @@ def blend(color: tuple[int, int, int], strength: float) -> str:
     return "#" + "".join(f"{channel:02X}" for channel in rgb)
 
 
-def render_seed_stability(main_seeds: list[dict[str, str]], grid_seeds: list[dict[str, str]], iccad_m_seeds: list[dict[str, str]]) -> str:
+def render_seed_stability(
+    main_seeds: list[dict[str, str]],
+    grid_seeds: list[dict[str, str]],
+    iccad_m_seeds: list[dict[str, str]],
+    ariane_m_seeds: list[dict[str, str]],
+) -> str:
     c_rows = {(row["benchmark"], int(row["seed"])): number(row["comp_res_hpwl"]) for row in main_seeds}
-    m_source = [row for row in grid_seeds if row["grid"] == "448" and row["variant"] == "linkplace-m"] + iccad_m_seeds
+    m_source = (
+        [row for row in grid_seeds if row["grid"] == "448" and row["variant"] == "linkplace-m"]
+        + ariane_m_seeds
+        + iccad_m_seeds
+    )
     m_rows = {(row["benchmark"], int(row["seed"])): number(row["comp_res_hpwl"]) for row in m_source}
     c_benchmarks = ISPD + ["ariane"] + ICCAD
-    m_benchmarks = ISPD + ICCAD
+    m_benchmarks = ISPD + ["ariane"] + ICCAD
 
     def deviations(source: dict[tuple[str, int], float | None], benchmarks: list[str]) -> dict[tuple[str, int], float]:
         output: dict[tuple[str, int], float] = {}
@@ -388,20 +411,31 @@ def render_seed_stability(main_seeds: list[dict[str, str]], grid_seeds: list[dic
                 body.append(text(x + (cell_w - 4) / 2, y + 26, f"{value:+.1f}%", css="small", anchor="middle"))
 
     panel(40, "LinkPlace-C · 17 circuits · 85 runs", c_benchmarks, c_dev)
-    panel(790, "LinkPlace-M · 16 circuits · 80 public seed records", m_benchmarks, m_dev)
+    panel(790, "LinkPlace-M · 17 circuits · 85 runs", m_benchmarks, m_dev)
     body += [rect(595, height - 48, 25, 14, fill=blend((37, 99, 235), 0.75), radius=2), text(628, height - 36, "below mean (lower HPWL)", css="legend"), rect(840, height - 48, 25, 14, fill=blend((249, 115, 22), 0.75), radius=2), text(873, height - 36, "above mean", css="legend")]
     return svg_document(width, height, "Five-seed stability heatmap", "Heatmap shows seed-level HPWL deviations from each method and circuit mean.", body)
 
 
-def render_rudy_delta(main_summary: list[dict[str, str]], grid_summary: list[dict[str, str]], iccad_m_summary: list[dict[str, str]]) -> str:
+def render_rudy_delta(
+    main_summary: list[dict[str, str]],
+    grid_summary: list[dict[str, str]],
+    iccad_m_summary: list[dict[str, str]],
+    ariane_m_summary: list[dict[str, str]],
+) -> str:
     c_main = indexed(main_summary, "benchmark")
     grid = indexed(grid_summary, "grid", "benchmark", "variant")
     m_iccad = indexed(iccad_m_summary, "benchmark")
-    benchmarks = ISPD + ICCAD
+    m_ariane = indexed(ariane_m_summary, "benchmark")
+    benchmarks = ISPD + ["ariane"] + ICCAD
     values: dict[tuple[str, str], float] = {}
     for benchmark in benchmarks:
         c = grid[("448", benchmark, "linkplace-c")] if benchmark in ISPD else c_main[(benchmark,)]
-        m = grid[("448", benchmark, "linkplace-m")] if benchmark in ISPD else m_iccad[(benchmark,)]
+        if benchmark in ISPD:
+            m = grid[("448", benchmark, "linkplace-m")]
+        elif benchmark == "ariane":
+            m = m_ariane[(benchmark,)]
+        else:
+            m = m_iccad[(benchmark,)]
         for metric, column in [("peak", "rudy_peak_mean"), ("top5", "rudy_top5_mean_mean")]:
             c_value, m_value = number(c[column]), number(m[column])
             assert c_value is not None and m_value is not None
@@ -413,7 +447,7 @@ def render_rudy_delta(main_summary: list[dict[str, str]], grid_summary: list[dic
     plot_w, plot_h = width - left - right, height - top - bottom
     body = [
         text(left, 38, "LinkPlace-M RUDY change relative to LinkPlace-C", css="title"),
-        text(left, 66, "Matched five-seed means on 16 circuits. Negative values favor LinkPlace-M; lower RUDY is better.", css="subtitle"),
+        text(left, 66, "Matched five-seed means on 17 circuits. Negative values favor LinkPlace-M; lower RUDY is better.", css="subtitle"),
     ]
     for tick in range(-axis_max, axis_max + 1, 10):
         x = left + (tick + axis_max) / (2 * axis_max) * plot_w
@@ -422,7 +456,7 @@ def render_rudy_delta(main_summary: list[dict[str, str]], grid_summary: list[dic
     for i, benchmark in enumerate(benchmarks):
         y = top + row_h * (i + 0.5)
         body.append(text(left - 16, y + 4, benchmark, css="label", anchor="end"))
-        if i in {7}:
+        if i in {7, 8}:
             body.append(line(left - 130, y + row_h / 2, width - right, y + row_h / 2, stroke="#94A3B8", width=2))
         for metric, dy, color in [("peak", -6, "#2563EB"), ("top5", 6, "#F97316")]:
             value = values[(benchmark, metric)]
@@ -433,7 +467,7 @@ def render_rudy_delta(main_summary: list[dict[str, str]], grid_summary: list[dic
                 body.append(circle(x, y + dy, 5.5, fill=color))
             else:
                 body.append(rect(x - 5, y + dy - 5, 10, 10, fill=color, radius=1))
-    body += [circle(left + 35, 91, 6, fill="#2563EB"), text(left + 50, 96, "Peak RUDY", css="legend"), rect(left + 180, 85, 12, 12, fill="#F97316", radius=1), text(left + 200, 96, "Top-5% mean", css="legend"), text(width - right, 96, "Ariane excluded: LinkPlace-M seed CSV is not in this public snapshot.", css="small", anchor="end")]
+    body += [circle(left + 35, 91, 6, fill="#2563EB"), text(left + 50, 96, "Peak RUDY", css="legend"), rect(left + 180, 85, 12, 12, fill="#F97316", radius=1), text(left + 200, 96, "Top-5% mean", css="legend")]
     return svg_document(width, height, "RUDY relative change", "Dot plot compares LinkPlace-M and LinkPlace-C five-seed RUDY means per circuit.", body)
 
 
@@ -497,6 +531,8 @@ def markdown_section(
     grid_seeds: list[dict[str, str]],
     iccad_m_summary: list[dict[str, str]],
     iccad_m_seeds: list[dict[str, str]],
+    ariane_m_summary: list[dict[str, str]],
+    ariane_m_seeds: list[dict[str, str]],
     baseline_summary: list[dict[str, str]],
     baseline_seeds: list[dict[str, str]],
     mixed_size_best: list[dict[str, str]],
@@ -504,6 +540,7 @@ def markdown_section(
     main = indexed(main_summary, "benchmark")
     grid = indexed(grid_summary, "grid", "benchmark", "variant")
     iccad_m = indexed(iccad_m_summary, "benchmark")
+    ariane_m = indexed(ariane_m_summary, "benchmark")
     baselines = indexed(baseline_summary, "method", "benchmark")
     baseline_records = indexed(baseline_seeds, "method", "benchmark")
     runtime_values: dict[str, list[float]] = {}
@@ -522,11 +559,11 @@ def markdown_section(
         "<!-- README_RESULTS:BEGIN -->",
         "## Results reported in the paper",
         "",
-        "The paper calls the two variants **CoDePlace** and **Monolithic PPO**; this public release uses **LinkPlace-C** and **LinkPlace-M**, respectively. The tables below reproduce the manuscript results first. Published-reference rows retain the precision reported by their cited papers, while LinkPlace rows are five-seed results from seeds `999–1003`. Lower HPWL and RUDY are better, and `±` denotes sample standard deviation.",
+        "The paper and this release use the method names **LinkPlace-C** and **LinkPlace-M**. The tables below reproduce the manuscript results first. Published-reference rows retain the precision reported by their cited papers, while LinkPlace rows are five-seed results from seeds `999–1003`. Lower HPWL and RUDY are better, and `±` denotes sample standard deviation.",
         "",
         "### ISPD2005 MacroHPWL",
         "",
-        "Six circuits use the complete macro set. Values are CompRes MacroHPWL scaled by `1e5`; LinkPlace cells also include mean runtime.",
+        "Six circuits use the complete macro set. Values are MacroHPWL scaled by `1e5`; LinkPlace cells also include mean runtime.",
         "",
         "| Method | " + " | ".join(ISPD_COMPLETE) + " |",
         "|---|" + "---:|" * len(ISPD_COMPLETE),
@@ -556,7 +593,7 @@ def markdown_section(
         "",
         "[![ISPD2005 convergence curves](assets/paper/ispd2005_convergence.png)](assets/paper/ispd2005_convergence.png)",
         "",
-        "**Paper figure — ISPD2005 convergence (seed 1000).** The x-axis is iterations. LinkPlace-C is a horizontal line at its validated final CompRes MacroHPWL; all other available curves are cumulative minima over retained legal layouts. WireMask-EA/adaptec4 and EfficientPlace/bigblue1 remain absent because their formal runs ended in preserved technical artifact failures.",
+        "**Paper figure — ISPD2005 optimization progress (seed 1000).** The x-axis reports optimization steps. LinkPlace-C is a horizontal line at its validated final MacroHPWL; all other available curves are cumulative minima over retained legal layouts. WireMask-EA/adaptec4 and EfficientPlace/bigblue1 are unavailable because those runs ended in execution failures.",
         "",
         "[![Component-colored LinkPlace-C layouts](assets/paper/linkplace_component_layouts.png)](assets/paper/linkplace_component_layouts.png)",
         "",
@@ -571,7 +608,7 @@ def markdown_section(
         "| MaskPlace | 14.63 |",
         "| EfficientPlace | 12.47 |",
         "| EGPlace | 7.91 |",
-        "| **LinkPlace-M (448)** | **7.20 ± 0.17 (4.02 h)** |",
+        f"| **LinkPlace-M (448)** | **{fmt_paper_hpwl(ariane_m[('ariane',)], 1e5, digits=2)}** |",
         f"| **LinkPlace-C (448)** | {fmt_paper_hpwl(main[('ariane',)], 1e5, c_runtime_hours['ariane'], digits=2)} |",
         "",
         "### ICCAD2015-derived macro-only instances",
@@ -609,9 +646,12 @@ def markdown_section(
             f"{fmt_rudy(m, 'rudy_top5_mean_mean', 'rudy_top5_mean_std')} |"
         )
     ariane = main[("ariane",)]
+    ariane_monolithic = ariane_m[("ariane",)]
     output.append(
-        f"| Ariane | {fmt_rudy(ariane, 'rudy_peak_mean', 'rudy_peak_std')} | 97.6278 ± 9.96 | "
-        f"{fmt_rudy(ariane, 'rudy_top5_mean_mean', 'rudy_top5_mean_std')} | 32.6640 ± 3.10 |"
+        f"| Ariane | {fmt_rudy(ariane, 'rudy_peak_mean', 'rudy_peak_std')} | "
+        f"{fmt_rudy(ariane_monolithic, 'rudy_peak_mean', 'rudy_peak_std')} | "
+        f"{fmt_rudy(ariane, 'rudy_top5_mean_mean', 'rudy_top5_mean_std')} | "
+        f"{fmt_rudy(ariane_monolithic, 'rudy_top5_mean_mean', 'rudy_top5_mean_std')} |"
     )
     for benchmark in ICCAD:
         c = main[(benchmark,)]
@@ -689,13 +729,14 @@ def markdown_section(
         f"| LinkPlace-C main | {len(main_seeds)} | 17 circuits × seeds 999–1003 | 85/85 complete legal layouts |",
         f"| Dual-grid ablation | {len(grid_seeds)} | 8 ISPD2005 × 2 grids × 3 variants × 5 seeds | {legal_grid}/{len(grid_seeds)} legal; All-greedy failures retained |",
         f"| LinkPlace-M ICCAD2015 | {len(iccad_m_seeds)} | 8 circuits × seeds 999–1003 | 40/40 complete legal layouts |",
+        f"| LinkPlace-M Ariane | {len(ariane_m_seeds)} | 1 circuit × seeds 999–1003 | 5/5 complete legal layouts |",
         f"| Same-code official baselines | {len(baseline_seeds)} | 3 methods × 8 ISPD2005 × seed 1000 | {legal_baselines}/{len(baseline_seeds)} legal; 2 technical failures retained |",
         "",
         "### Same-code ISPD2005 comparison (seed 1000 baselines)",
         "",
         "![ISPD2005 normalized HPWL comparison](assets/results/ispd2005_hpwl_relative.svg)",
         "",
-        "Exact CompRes MacroHPWL values are scaled by `1e5`. LinkPlace values are five-seed statistics; MaskPlace, WireMask-EA, and EfficientPlace are official implementations run once with seed `1000`.",
+        "Exact MacroHPWL values are scaled by `1e5`. LinkPlace values are five-seed statistics; MaskPlace, WireMask-EA, and EfficientPlace are official implementations run once with seed `1000`.",
         "",
         "| Circuit | LinkPlace-C | LinkPlace-M | Δ M vs C | MaskPlace | WireMask-EA | EfficientPlace |",
         "|---|---:|---:|---:|---:|---:|---:|",
@@ -732,13 +773,14 @@ def markdown_section(
         "",
         "![RUDY relative changes](assets/results/rudy_relative_delta.svg)",
         "",
-        "This normalized plot compares matched LinkPlace-C/LinkPlace-M RUDY means on the 16 circuits with public seed-level records for both variants. Ariane is omitted only from this extra plot because the public snapshot currently carries its LinkPlace-M paper summary rather than its seed CSV.",
+        "This normalized plot compares matched LinkPlace-C/LinkPlace-M RUDY means on all 17 circuits with public five-seed records for both variants.",
         "",
         "### Machine-readable server records",
         "",
         "- [LinkPlace-C: 85 per-seed records](artifacts/tables/main_seed_results.csv) and [17-circuit summary](artifacts/tables/main_mean_std.csv)",
         "- [Dual-grid ablation: 240 per-seed records](artifacts/tables/grid_ablation_five_seed_results.csv) and [48 summary rows](artifacts/tables/grid_ablation_five_seed_mean_std.csv)",
         "- [LinkPlace-M ICCAD2015: 40 per-seed records](artifacts/tables/linkplace_m_iccad2015_seed_results.csv) and [8-circuit summary](artifacts/tables/linkplace_m_iccad2015_mean_std.csv)",
+        "- [LinkPlace-M Ariane: 5 per-seed records](artifacts/tables/linkplace_m_ariane_seed_results.csv) and [summary](artifacts/tables/linkplace_m_ariane_mean_std.csv)",
         "- [Official baselines: 24 seed records](artifacts/tables/baseline_seed_results.csv), including the preserved WireMask-EA/adaptec4 and EfficientPlace/bigblue1 technical failures",
         "",
         "Regenerate and verify the generated section and SVGs with:",
@@ -788,6 +830,8 @@ def main() -> int:
     grid_seeds = rows("grid_ablation_five_seed_results.csv")
     iccad_m_summary = rows("linkplace_m_iccad2015_mean_std.csv")
     iccad_m_seeds = rows("linkplace_m_iccad2015_seed_results.csv")
+    ariane_m_summary = rows("linkplace_m_ariane_mean_std.csv")
+    ariane_m_seeds = rows("linkplace_m_ariane_seed_results.csv")
     baseline_summary = rows("baseline_mean_std.csv")
     baseline_seeds = rows("baseline_seed_results.csv")
     mixed_size_best = rows_from(MIXED_SIZE_BEST)
@@ -799,6 +843,8 @@ def main() -> int:
         grid_seeds,
         iccad_m_summary,
         iccad_m_seeds,
+        ariane_m_summary,
+        ariane_m_seeds,
         baseline_summary,
         baseline_seeds,
     )
@@ -806,8 +852,8 @@ def main() -> int:
     figures = {
         FIGURES / "ispd2005_hpwl_relative.svg": render_ispd_comparison(grid_summary, baseline_summary),
         FIGURES / "grid_ablation.svg": render_grid_ablation(grid_summary),
-        FIGURES / "seed_stability.svg": render_seed_stability(main_seeds, grid_seeds, iccad_m_seeds),
-        FIGURES / "rudy_relative_delta.svg": render_rudy_delta(main_summary, grid_summary, iccad_m_summary),
+        FIGURES / "seed_stability.svg": render_seed_stability(main_seeds, grid_seeds, iccad_m_seeds, ariane_m_seeds),
+        FIGURES / "rudy_relative_delta.svg": render_rudy_delta(main_summary, grid_summary, iccad_m_summary, ariane_m_summary),
     }
     for path, content in figures.items():
         write_or_check(path, content, check)
@@ -819,6 +865,8 @@ def main() -> int:
         grid_seeds,
         iccad_m_summary,
         iccad_m_seeds,
+        ariane_m_summary,
+        ariane_m_seeds,
         baseline_summary,
         baseline_seeds,
         mixed_size_best,

@@ -205,7 +205,7 @@
   <text x="482.00" y="842.00" class="small" text-anchor="middle">+0.8%</text>
   <rect x="530.00" y="816.00" width="88.00" height="39.00" rx="3" fill="#FEE2CF"/>
   <text x="574.00" y="842.00" class="small" text-anchor="middle">+0.9%</text>
-  <text x="790.00" y="101.00" class="label" text-anchor="start">LinkPlace-M · 16 circuits · 80 public seed records</text>
+  <text x="790.00" y="101.00" class="label" text-anchor="start">LinkPlace-M · 17 circuits · 85 runs</text>
   <text x="958.00" y="116.00" class="label" text-anchor="middle">999</text>
   <text x="1050.00" y="116.00" class="label" text-anchor="middle">1000</text>
   <text x="1142.00" y="116.00" class="label" text-anchor="middle">1001</text>
@@ -299,94 +299,105 @@
   <text x="1232.00" y="455.00" class="small" text-anchor="middle">+0.8%</text>
   <rect x="1280.00" y="429.00" width="88.00" height="39.00" rx="3" fill="#FEDFCA"/>
   <text x="1324.00" y="455.00" class="small" text-anchor="middle">+1.6%</text>
-  <text x="902.00" y="499.00" class="label" text-anchor="end">superblue1</text>
-  <rect x="912.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#FEE6D5"/>
-  <text x="956.00" y="498.00" class="small" text-anchor="middle">+0.0%</text>
-  <rect x="1004.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
-  <text x="1048.00" y="498.00" class="small" text-anchor="middle">+0.1%</text>
-  <rect x="1096.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#D7E2FB"/>
-  <text x="1140.00" y="498.00" class="small" text-anchor="middle">-0.2%</text>
-  <rect x="1188.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#FEE6D5"/>
-  <text x="1232.00" y="498.00" class="small" text-anchor="middle">+0.0%</text>
-  <rect x="1280.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#FEE6D5"/>
-  <text x="1324.00" y="498.00" class="small" text-anchor="middle">+0.0%</text>
-  <text x="902.00" y="542.00" class="label" text-anchor="end">superblue3</text>
-  <rect x="912.00" y="515.00" width="88.00" height="39.00" rx="3" fill="#FEE3D1"/>
-  <text x="956.00" y="541.00" class="small" text-anchor="middle">+0.6%</text>
-  <rect x="1004.00" y="515.00" width="88.00" height="39.00" rx="3" fill="#FEE4D3"/>
-  <text x="1048.00" y="541.00" class="small" text-anchor="middle">+0.4%</text>
+  <text x="902.00" y="499.00" class="label" text-anchor="end">ariane</text>
+  <rect x="912.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#C2D4F9"/>
+  <text x="956.00" y="498.00" class="small" text-anchor="middle">-3.3%</text>
+  <rect x="1004.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#CEDCFB"/>
+  <text x="1048.00" y="498.00" class="small" text-anchor="middle">-1.5%</text>
+  <rect x="1096.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#FEE0CC"/>
+  <text x="1140.00" y="498.00" class="small" text-anchor="middle">+1.3%</text>
+  <rect x="1188.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#FEE1CD"/>
+  <text x="1232.00" y="498.00" class="small" text-anchor="middle">+1.1%</text>
+  <rect x="1280.00" y="472.00" width="88.00" height="39.00" rx="3" fill="#FDDCC4"/>
+  <text x="1324.00" y="498.00" class="small" text-anchor="middle">+2.4%</text>
+  <text x="902.00" y="542.00" class="label" text-anchor="end">superblue1</text>
+  <rect x="912.00" y="515.00" width="88.00" height="39.00" rx="3" fill="#FEE6D5"/>
+  <text x="956.00" y="541.00" class="small" text-anchor="middle">+0.0%</text>
+  <rect x="1004.00" y="515.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
+  <text x="1048.00" y="541.00" class="small" text-anchor="middle">+0.1%</text>
   <rect x="1096.00" y="515.00" width="88.00" height="39.00" rx="3" fill="#D7E2FB"/>
-  <text x="1140.00" y="541.00" class="small" text-anchor="middle">-0.1%</text>
-  <rect x="1188.00" y="515.00" width="88.00" height="39.00" rx="3" fill="#D5E1FB"/>
-  <text x="1232.00" y="541.00" class="small" text-anchor="middle">-0.4%</text>
-  <rect x="1280.00" y="515.00" width="88.00" height="39.00" rx="3" fill="#D5E1FB"/>
-  <text x="1324.00" y="541.00" class="small" text-anchor="middle">-0.4%</text>
-  <text x="902.00" y="585.00" class="label" text-anchor="end">superblue4</text>
-  <rect x="912.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#D5E1FB"/>
-  <text x="956.00" y="584.00" class="small" text-anchor="middle">-0.4%</text>
-  <rect x="1004.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#FEE0CB"/>
-  <text x="1048.00" y="584.00" class="small" text-anchor="middle">+1.4%</text>
-  <rect x="1096.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#D6E2FB"/>
-  <text x="1140.00" y="584.00" class="small" text-anchor="middle">-0.2%</text>
-  <rect x="1188.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#D6E2FB"/>
-  <text x="1232.00" y="584.00" class="small" text-anchor="middle">-0.2%</text>
-  <rect x="1280.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#D4E1FB"/>
-  <text x="1324.00" y="584.00" class="small" text-anchor="middle">-0.5%</text>
-  <text x="902.00" y="628.00" class="label" text-anchor="end">superblue5</text>
-  <rect x="912.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#FEE2CE"/>
-  <text x="956.00" y="627.00" class="small" text-anchor="middle">+0.9%</text>
-  <rect x="1004.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#CAD9FA"/>
-  <text x="1048.00" y="627.00" class="small" text-anchor="middle">-2.0%</text>
-  <rect x="1096.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#FEE2CF"/>
-  <text x="1140.00" y="627.00" class="small" text-anchor="middle">+0.9%</text>
-  <rect x="1188.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
-  <text x="1232.00" y="627.00" class="small" text-anchor="middle">+0.2%</text>
-  <rect x="1280.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#D8E3FB"/>
-  <text x="1324.00" y="627.00" class="small" text-anchor="middle">-0.0%</text>
-  <text x="902.00" y="671.00" class="label" text-anchor="end">superblue7</text>
-  <rect x="912.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#D7E2FB"/>
-  <text x="956.00" y="670.00" class="small" text-anchor="middle">-0.2%</text>
-  <rect x="1004.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#FEE6D5"/>
-  <text x="1048.00" y="670.00" class="small" text-anchor="middle">+0.0%</text>
-  <rect x="1096.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
-  <text x="1140.00" y="670.00" class="small" text-anchor="middle">+0.1%</text>
-  <rect x="1188.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#D7E3FB"/>
-  <text x="1232.00" y="670.00" class="small" text-anchor="middle">-0.1%</text>
-  <rect x="1280.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
-  <text x="1324.00" y="670.00" class="small" text-anchor="middle">+0.2%</text>
-  <text x="902.00" y="714.00" class="label" text-anchor="end">superblue10</text>
-  <rect x="912.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
-  <text x="956.00" y="713.00" class="small" text-anchor="middle">+0.2%</text>
-  <rect x="1004.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#D7E2FB"/>
-  <text x="1048.00" y="713.00" class="small" text-anchor="middle">-0.1%</text>
-  <rect x="1096.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#FEE5D3"/>
-  <text x="1140.00" y="713.00" class="small" text-anchor="middle">+0.3%</text>
-  <rect x="1188.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#D8E3FB"/>
-  <text x="1232.00" y="713.00" class="small" text-anchor="middle">-0.0%</text>
-  <rect x="1280.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#D6E1FB"/>
-  <text x="1324.00" y="713.00" class="small" text-anchor="middle">-0.3%</text>
-  <text x="902.00" y="757.00" class="label" text-anchor="end">superblue16</text>
-  <rect x="912.00" y="730.00" width="88.00" height="39.00" rx="3" fill="#FEE0CC"/>
-  <text x="956.00" y="756.00" class="small" text-anchor="middle">+1.3%</text>
+  <text x="1140.00" y="541.00" class="small" text-anchor="middle">-0.2%</text>
+  <rect x="1188.00" y="515.00" width="88.00" height="39.00" rx="3" fill="#FEE6D5"/>
+  <text x="1232.00" y="541.00" class="small" text-anchor="middle">+0.0%</text>
+  <rect x="1280.00" y="515.00" width="88.00" height="39.00" rx="3" fill="#FEE6D5"/>
+  <text x="1324.00" y="541.00" class="small" text-anchor="middle">+0.0%</text>
+  <text x="902.00" y="585.00" class="label" text-anchor="end">superblue3</text>
+  <rect x="912.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#FEE3D1"/>
+  <text x="956.00" y="584.00" class="small" text-anchor="middle">+0.6%</text>
+  <rect x="1004.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#FEE4D3"/>
+  <text x="1048.00" y="584.00" class="small" text-anchor="middle">+0.4%</text>
+  <rect x="1096.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#D7E2FB"/>
+  <text x="1140.00" y="584.00" class="small" text-anchor="middle">-0.1%</text>
+  <rect x="1188.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#D5E1FB"/>
+  <text x="1232.00" y="584.00" class="small" text-anchor="middle">-0.4%</text>
+  <rect x="1280.00" y="558.00" width="88.00" height="39.00" rx="3" fill="#D5E1FB"/>
+  <text x="1324.00" y="584.00" class="small" text-anchor="middle">-0.4%</text>
+  <text x="902.00" y="628.00" class="label" text-anchor="end">superblue4</text>
+  <rect x="912.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#D5E1FB"/>
+  <text x="956.00" y="627.00" class="small" text-anchor="middle">-0.4%</text>
+  <rect x="1004.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#FEE0CB"/>
+  <text x="1048.00" y="627.00" class="small" text-anchor="middle">+1.4%</text>
+  <rect x="1096.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#D6E2FB"/>
+  <text x="1140.00" y="627.00" class="small" text-anchor="middle">-0.2%</text>
+  <rect x="1188.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#D6E2FB"/>
+  <text x="1232.00" y="627.00" class="small" text-anchor="middle">-0.2%</text>
+  <rect x="1280.00" y="601.00" width="88.00" height="39.00" rx="3" fill="#D4E1FB"/>
+  <text x="1324.00" y="627.00" class="small" text-anchor="middle">-0.5%</text>
+  <text x="902.00" y="671.00" class="label" text-anchor="end">superblue5</text>
+  <rect x="912.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#FEE2CE"/>
+  <text x="956.00" y="670.00" class="small" text-anchor="middle">+0.9%</text>
+  <rect x="1004.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#CAD9FA"/>
+  <text x="1048.00" y="670.00" class="small" text-anchor="middle">-2.0%</text>
+  <rect x="1096.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#FEE2CF"/>
+  <text x="1140.00" y="670.00" class="small" text-anchor="middle">+0.9%</text>
+  <rect x="1188.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
+  <text x="1232.00" y="670.00" class="small" text-anchor="middle">+0.2%</text>
+  <rect x="1280.00" y="644.00" width="88.00" height="39.00" rx="3" fill="#D8E3FB"/>
+  <text x="1324.00" y="670.00" class="small" text-anchor="middle">-0.0%</text>
+  <text x="902.00" y="714.00" class="label" text-anchor="end">superblue7</text>
+  <rect x="912.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#D7E2FB"/>
+  <text x="956.00" y="713.00" class="small" text-anchor="middle">-0.2%</text>
+  <rect x="1004.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#FEE6D5"/>
+  <text x="1048.00" y="713.00" class="small" text-anchor="middle">+0.0%</text>
+  <rect x="1096.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
+  <text x="1140.00" y="713.00" class="small" text-anchor="middle">+0.1%</text>
+  <rect x="1188.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#D7E3FB"/>
+  <text x="1232.00" y="713.00" class="small" text-anchor="middle">-0.1%</text>
+  <rect x="1280.00" y="687.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
+  <text x="1324.00" y="713.00" class="small" text-anchor="middle">+0.2%</text>
+  <text x="902.00" y="757.00" class="label" text-anchor="end">superblue10</text>
+  <rect x="912.00" y="730.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
+  <text x="956.00" y="756.00" class="small" text-anchor="middle">+0.2%</text>
   <rect x="1004.00" y="730.00" width="88.00" height="39.00" rx="3" fill="#D7E2FB"/>
-  <text x="1048.00" y="756.00" class="small" text-anchor="middle">-0.2%</text>
-  <rect x="1096.00" y="730.00" width="88.00" height="39.00" rx="3" fill="#CCDBFA"/>
-  <text x="1140.00" y="756.00" class="small" text-anchor="middle">-1.8%</text>
-  <rect x="1188.00" y="730.00" width="88.00" height="39.00" rx="3" fill="#FEE3D1"/>
-  <text x="1232.00" y="756.00" class="small" text-anchor="middle">+0.6%</text>
-  <rect x="1280.00" y="730.00" width="88.00" height="39.00" rx="3" fill="#D8E3FB"/>
-  <text x="1324.00" y="756.00" class="small" text-anchor="middle">-0.0%</text>
-  <text x="902.00" y="800.00" class="label" text-anchor="end">superblue18</text>
-  <rect x="912.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#FEE3D0"/>
-  <text x="956.00" y="799.00" class="small" text-anchor="middle">+0.7%</text>
-  <rect x="1004.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#FEE4D2"/>
-  <text x="1048.00" y="799.00" class="small" text-anchor="middle">+0.4%</text>
-  <rect x="1096.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#CDDBFA"/>
-  <text x="1140.00" y="799.00" class="small" text-anchor="middle">-1.7%</text>
-  <rect x="1188.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
-  <text x="1232.00" y="799.00" class="small" text-anchor="middle">+0.2%</text>
-  <rect x="1280.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#FEE4D2"/>
-  <text x="1324.00" y="799.00" class="small" text-anchor="middle">+0.5%</text>
+  <text x="1048.00" y="756.00" class="small" text-anchor="middle">-0.1%</text>
+  <rect x="1096.00" y="730.00" width="88.00" height="39.00" rx="3" fill="#FEE5D3"/>
+  <text x="1140.00" y="756.00" class="small" text-anchor="middle">+0.3%</text>
+  <rect x="1188.00" y="730.00" width="88.00" height="39.00" rx="3" fill="#D8E3FB"/>
+  <text x="1232.00" y="756.00" class="small" text-anchor="middle">-0.0%</text>
+  <rect x="1280.00" y="730.00" width="88.00" height="39.00" rx="3" fill="#D6E1FB"/>
+  <text x="1324.00" y="756.00" class="small" text-anchor="middle">-0.3%</text>
+  <text x="902.00" y="800.00" class="label" text-anchor="end">superblue16</text>
+  <rect x="912.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#FEE0CC"/>
+  <text x="956.00" y="799.00" class="small" text-anchor="middle">+1.3%</text>
+  <rect x="1004.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#D7E2FB"/>
+  <text x="1048.00" y="799.00" class="small" text-anchor="middle">-0.2%</text>
+  <rect x="1096.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#CCDBFA"/>
+  <text x="1140.00" y="799.00" class="small" text-anchor="middle">-1.8%</text>
+  <rect x="1188.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#FEE3D1"/>
+  <text x="1232.00" y="799.00" class="small" text-anchor="middle">+0.6%</text>
+  <rect x="1280.00" y="773.00" width="88.00" height="39.00" rx="3" fill="#D8E3FB"/>
+  <text x="1324.00" y="799.00" class="small" text-anchor="middle">-0.0%</text>
+  <text x="902.00" y="843.00" class="label" text-anchor="end">superblue18</text>
+  <rect x="912.00" y="816.00" width="88.00" height="39.00" rx="3" fill="#FEE3D0"/>
+  <text x="956.00" y="842.00" class="small" text-anchor="middle">+0.7%</text>
+  <rect x="1004.00" y="816.00" width="88.00" height="39.00" rx="3" fill="#FEE4D2"/>
+  <text x="1048.00" y="842.00" class="small" text-anchor="middle">+0.4%</text>
+  <rect x="1096.00" y="816.00" width="88.00" height="39.00" rx="3" fill="#CDDBFA"/>
+  <text x="1140.00" y="842.00" class="small" text-anchor="middle">-1.7%</text>
+  <rect x="1188.00" y="816.00" width="88.00" height="39.00" rx="3" fill="#FEE5D4"/>
+  <text x="1232.00" y="842.00" class="small" text-anchor="middle">+0.2%</text>
+  <rect x="1280.00" y="816.00" width="88.00" height="39.00" rx="3" fill="#FEE4D2"/>
+  <text x="1324.00" y="842.00" class="small" text-anchor="middle">+0.5%</text>
   <rect x="595.00" y="922.00" width="25.00" height="14.00" rx="2" fill="#5C8AF0"/>
   <text x="628.00" y="934.00" class="legend" text-anchor="start">below mean (lower HPWL)</text>
   <rect x="840.00" y="922.00" width="25.00" height="14.00" rx="2" fill="#FA9650"/>

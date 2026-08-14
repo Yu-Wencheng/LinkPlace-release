@@ -8,6 +8,14 @@ version = "0.1.0"
 description = "Connectivity-aware macro placement research code"
 readme = "README.md"
 requires-python = ">=3.9"
+authors = [
+  {name = "Wencheng Yu", email = "246270152@hdu.edu.cn"},
+  {name = "Yunlong Ran", email = "252050340@hdu.edu.cn"},
+  {name = "Lingyan Fan", email = "fanlingyan@hdu.edu.cn"},
+  {name = "Hailuan Liu", email = "hailuanliu@hotmail.com"},
+  {name = "Guorui Feng", email = "grfeng@shu.edu.cn"},
+]
+keywords = ["macro placement", "reinforcement learning", "electronic design automation"]
 dependencies = [
   "matplotlib>=3.5",
   "numpy>=1.21",
@@ -21,6 +29,11 @@ tensorboard = ["tensorboard>=2.10"]
 
 [project.scripts]
 linkplace = "linkplace.runner:main"
+
+[project.urls]
+Homepage = "https://github.com/Yu-Wencheng/LinkPlace-release"
+Repository = "https://github.com/Yu-Wencheng/LinkPlace-release"
+Issues = "https://github.com/Yu-Wencheng/LinkPlace-release/issues"
 
 [tool.setuptools.packages.find]
 include = ["linkplace*"]

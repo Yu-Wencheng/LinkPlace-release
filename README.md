@@ -6,7 +6,7 @@ placement. The release uses two public method names:
 - **LinkPlace-C** (`linkplace-c`): decomposes the macro netlist into connected
   components and trains/places large components sequentially.
 - **LinkPlace-M** (`linkplace-m`): trains one monolithic PPO policy over the
-  same selected macros and ordering rules.
+  same selected macros and component-internal connectivity rule.
 
 The code in this directory is a clean publication staging tree. It does not
 contain private server paths, raw benchmarks, trained checkpoints, or the full
@@ -56,11 +56,11 @@ python -m linkplace.runner --cache-root datasets/cache inspect adaptec1
 <!-- README_RESULTS:BEGIN -->
 ## Results reported in the paper
 
-The paper calls the two variants **CoDePlace** and **Monolithic PPO**; this public release uses **LinkPlace-C** and **LinkPlace-M**, respectively. The tables below reproduce the manuscript results first. Published-reference rows retain the precision reported by their cited papers, while LinkPlace rows are five-seed results from seeds `999–1003`. Lower HPWL and RUDY are better, and `±` denotes sample standard deviation.
+The paper and this release use the method names **LinkPlace-C** and **LinkPlace-M**. The tables below reproduce the manuscript results first. Published-reference rows retain the precision reported by their cited papers, while LinkPlace rows are five-seed results from seeds `999–1003`. Lower HPWL and RUDY are better, and `±` denotes sample standard deviation.
 
 ### ISPD2005 MacroHPWL
 
-Six circuits use the complete macro set. Values are CompRes MacroHPWL scaled by `1e5`; LinkPlace cells also include mean runtime.
+Six circuits use the complete macro set. Values are MacroHPWL scaled by `1e5`; LinkPlace cells also include mean runtime.
 
 | Method | adaptec1 | adaptec2 | adaptec3 | adaptec4 | bigblue1 | bigblue3 |
 |---|---:|---:|---:|---:|---:|---:|
@@ -92,7 +92,7 @@ Bigblue2 and bigblue4 use the EGPlace-selected 1,024-macro subsets and are there
 
 [![ISPD2005 convergence curves](assets/paper/ispd2005_convergence.png)](assets/paper/ispd2005_convergence.png)
 
-**Paper figure — ISPD2005 convergence (seed 1000).** The x-axis is iterations. LinkPlace-C is a horizontal line at its validated final CompRes MacroHPWL; all other available curves are cumulative minima over retained legal layouts. WireMask-EA/adaptec4 and EfficientPlace/bigblue1 remain absent because their formal runs ended in preserved technical artifact failures.
+**Paper figure — ISPD2005 optimization progress (seed 1000).** The x-axis reports optimization steps. LinkPlace-C is a horizontal line at its validated final MacroHPWL; all other available curves are cumulative minima over retained legal layouts. WireMask-EA/adaptec4 and EfficientPlace/bigblue1 are unavailable because those runs ended in execution failures.
 
 [![Component-colored LinkPlace-C layouts](assets/paper/linkplace_component_layouts.png)](assets/paper/linkplace_component_layouts.png)
 
@@ -139,7 +139,7 @@ The placement grid generates every reported layout on the `448 × 448` action gr
 | bigblue2 | 0.0719219 ± 0.00658 | 0.0750122 ± 0.00587 | 0.0214889 ± 0.000393 | 0.0216774 ± 0.000397 |
 | bigblue3 | 0.818337 ± 0.0449 | 0.80503 ± 0.0305 | 0.0746362 ± 0.00217 | 0.076791 ± 0.00293 |
 | bigblue4 | 0.457117 ± 0.121 | 0.407608 ± 0.0147 | 0.0794019 ± 0.000532 | 0.0800462 ± 0.00146 |
-| Ariane | 98.8939 ± 12.4 | 97.6278 ± 9.96 | 36.0242 ± 4.32 | 32.6640 ± 3.10 |
+| Ariane | 98.8939 ± 12.4 | 97.6278 ± 9.96 | 36.0242 ± 4.32 | 32.664 ± 3.1 |
 | superblue1 | 0.000231756 ± 1.37e-05 | 0.00023442 ± 9.99e-06 | 8.84153e-06 ± 8.39e-07 | 8.23751e-06 ± 7.4e-09 |
 | superblue3 | 0.000551671 ± 9.56e-05 | 0.000479434 ± 0.000104 | 1.55328e-05 ± 1.35e-07 | 1.58482e-05 ± 6.69e-08 |
 | superblue4 | 0.000680785 ± 0.000169 | 0.000821537 ± 0.000139 | 2.90048e-05 ± 2.23e-08 | 2.85279e-05 ± 2.09e-07 |
@@ -205,13 +205,14 @@ The following views expose server records that are too detailed for the manuscri
 | LinkPlace-C main | 85 | 17 circuits × seeds 999–1003 | 85/85 complete legal layouts |
 | Dual-grid ablation | 240 | 8 ISPD2005 × 2 grids × 3 variants × 5 seeds | 188/240 legal; All-greedy failures retained |
 | LinkPlace-M ICCAD2015 | 40 | 8 circuits × seeds 999–1003 | 40/40 complete legal layouts |
+| LinkPlace-M Ariane | 5 | 1 circuit × seeds 999–1003 | 5/5 complete legal layouts |
 | Same-code official baselines | 24 | 3 methods × 8 ISPD2005 × seed 1000 | 22/24 legal; 2 technical failures retained |
 
 ### Same-code ISPD2005 comparison (seed 1000 baselines)
 
 ![ISPD2005 normalized HPWL comparison](assets/results/ispd2005_hpwl_relative.svg)
 
-Exact CompRes MacroHPWL values are scaled by `1e5`. LinkPlace values are five-seed statistics; MaskPlace, WireMask-EA, and EfficientPlace are official implementations run once with seed `1000`.
+Exact MacroHPWL values are scaled by `1e5`. LinkPlace values are five-seed statistics; MaskPlace, WireMask-EA, and EfficientPlace are official implementations run once with seed `1000`.
 
 | Circuit | LinkPlace-C | LinkPlace-M | Δ M vs C | MaskPlace | WireMask-EA | EfficientPlace |
 |---|---:|---:|---:|---:|---:|---:|
@@ -234,13 +235,14 @@ The heatmap shows every public seed's HPWL deviation from its method/circuit mea
 
 ![RUDY relative changes](assets/results/rudy_relative_delta.svg)
 
-This normalized plot compares matched LinkPlace-C/LinkPlace-M RUDY means on the 16 circuits with public seed-level records for both variants. Ariane is omitted only from this extra plot because the public snapshot currently carries its LinkPlace-M paper summary rather than its seed CSV.
+This normalized plot compares matched LinkPlace-C/LinkPlace-M RUDY means on all 17 circuits with public five-seed records for both variants.
 
 ### Machine-readable server records
 
 - [LinkPlace-C: 85 per-seed records](artifacts/tables/main_seed_results.csv) and [17-circuit summary](artifacts/tables/main_mean_std.csv)
 - [Dual-grid ablation: 240 per-seed records](artifacts/tables/grid_ablation_five_seed_results.csv) and [48 summary rows](artifacts/tables/grid_ablation_five_seed_mean_std.csv)
 - [LinkPlace-M ICCAD2015: 40 per-seed records](artifacts/tables/linkplace_m_iccad2015_seed_results.csv) and [8-circuit summary](artifacts/tables/linkplace_m_iccad2015_mean_std.csv)
+- [LinkPlace-M Ariane: 5 per-seed records](artifacts/tables/linkplace_m_ariane_seed_results.csv) and [summary](artifacts/tables/linkplace_m_ariane_mean_std.csv)
 - [Official baselines: 24 seed records](artifacts/tables/baseline_seed_results.csv), including the preserved WireMask-EA/adaptec4 and EfficientPlace/bigblue1 technical failures
 
 Regenerate and verify the generated section and SVGs with:
@@ -256,8 +258,9 @@ python tools/render_readme_results.py --check
 The complete settings and result schema are frozen in
 [`docs/FORMAL_PROTOCOL.md`](docs/FORMAL_PROTOCOL.md) and
 [`configs/formal.json`](configs/formal.json). Formal runs use seeds
-999-1003, 1000 episodes, and a 448 x 448 grid; the grid ablation additionally
-uses 224 x 224.
+999-1003, 1000 placement epochs, and a 448 x 448 grid; the grid ablation
+additionally uses 224 x 224. The CLI retains the historical option name
+`--episodes` for this placement-epoch count.
 
 Set environment variables only when paths differ from the defaults:
 
@@ -278,17 +281,28 @@ are ignored. Large immutable artifacts should be published separately (for
 example, an institutional repository or Zenodo) with SHA-256 manifests and a
 versioned DOI.
 
-## Publication blockers
+## Citation
 
-Before making this repository public:
+GitHub-readable software citation metadata is provided in
+[`CITATION.cff`](CITATION.cff). The paper DOI and archival software DOI will be
+added when they are assigned.
+
+## Release status
+
+The repository is public for reproducibility review, but it is not yet offered
+under a repository-wide open-source license. The remaining rights issue is
+documented in `THIRD_PARTY_NOTICES.md` and `docs/MASKPLACE_PROVENANCE.md`.
+The source/manuscript consistency findings that must be resolved before a
+final reproducibility tag are recorded in `RELEASE_AUDIT.md`.
+
+Before assigning a repository-wide license or creating a Zenodo archive:
 
 1. Resolve the MaskPlace-derived code identified in
    `THIRD_PARTY_NOTICES.md`. The audited MaskPlace revision has no explicit
    license, so public redistribution requires written permission or independent
-   replacement code before choosing a repository-wide license.
-2. Add the final author list, repository URL, paper title, and DOI to a valid
-   `CITATION.cff`.
-3. Verify benchmark redistribution terms; the current release intentionally
-   excludes benchmark data.
+   replacement code before choosing a repository-wide license or a Zenodo
+   license that applies to every archived file.
+2. Add the final paper DOI to `CITATION.cff` after publication.
 
-No license is implied until a `LICENSE` file is added by the authors.
+Benchmark files remain excluded; users must obtain them from their authorized
+sources. No license is implied until a `LICENSE` file is added by the authors.

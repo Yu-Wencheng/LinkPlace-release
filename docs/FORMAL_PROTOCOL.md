@@ -9,10 +9,11 @@ single-policy (monolithic) counterpart. The command-line identifiers are
 
 - Seeds: `999`, `1000`, `1001`, `1002`, `1003`.
 - Formal action grid: `448 x 448`; grid ablations additionally use `224 x 224`.
-- Training budget: 1000 complete placement episodes per trained policy.
+- Training budget: 1000 placement epochs per trained policy. Each placement
+  epoch generates one complete placement trajectory.
 - Actor learning rate: `1e-3`; critic learning rate: `1e-4`.
 - Discount: `0.95`; PPO clip: `0.2`; minibatch: `64`.
-- Ten PPO update epochs and one update per five complete episodes.
+- Ten PPO update epochs and one update per five placement epochs.
 - Deterministic PyTorch/CUDA settings and fixed per-run seed.
 
 The square canvas extent, one physical/grid ratio, empty-canvas mask, wire
@@ -30,8 +31,8 @@ deterministic tie-breakers.
 
 Large components (at least 20 macros) run first, ordered by macro count, total
 macro area, and minimum macro name. Each component receives its own PPO policy
-and is trained on the already occupied canvas. The legal episode with minimum
-CompRes HPWL is retained and rigidly translated to maximize the remaining blank
+and is trained on the already occupied canvas. The legal placement epoch with
+minimum macro-only HPWL is retained and rigidly translated to maximize the remaining blank
 rectangle; seeded randomness only resolves exact ties.
 
 Small components are then placed greedily by total area, macro count, and
@@ -87,6 +88,10 @@ python -m linkplace.runner --cache-root datasets/cache \
 python tools/aggregate_paper_results.py --result-root outputs/formal
 python tools/aggregate_multiseed_extension.py --result-root outputs/formal
 ```
+
+The command-line option remains named `--episodes` for compatibility with the
+archived experiment scripts; its value is the number of placement epochs, not
+the number of PPO update epochs.
 
 Paper-level conclusions require complete expected seed coverage. A healthy
 process, a partial queue, or one successful seed is not a complete result.

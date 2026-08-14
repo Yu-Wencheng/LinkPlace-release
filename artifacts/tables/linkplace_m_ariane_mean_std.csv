@@ -1,0 +1,2 @@
+grid,benchmark,variant,successful_seeds,required_seeds,failed_seeds,missing_seeds,comp_res_hpwl_mean,comp_res_hpwl_std,rudy_peak_mean,rudy_peak_std,rudy_top5_mean_mean,rudy_top5_mean_std,wall_seconds_mean,complete
+448,ariane,linkplace-m,5,5,0,0,720106.3761342015,16704.36247136186,97.62775505074596,9.9558195868059,32.664042697169684,3.101242460821889,14480.294750785828,True
