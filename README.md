@@ -190,6 +190,10 @@ The table reports the best legal full-design placement obtained for each complet
 
 [Machine-readable summary](artifacts/mixed_size_best/summary.csv) · [SHA-256 checksums](artifacts/mixed_size_best/SHA256SUMS)
 
+[![Best legal mixed-size DREAMPlace layouts initialized by LinkPlace-M and LinkPlace-C](assets/paper/dreamplace_final_layouts.png)](assets/paper/dreamplace_final_layouts.png)
+
+**Best legal mixed-size layouts.** Panels (a)–(f) use LinkPlace-M macro initializations and panels (g)–(l) use LinkPlace-C, following the circuit order in the table.
+
 ## Additional server results not shown in the paper
 
 The following views expose server records that are too detailed for the manuscript: exact per-seed outcomes, same-code official-baseline comparisons, stochastic stability, and additional normalized plots. They do not replace the paper tables above.

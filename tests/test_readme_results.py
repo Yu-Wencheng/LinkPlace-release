@@ -31,6 +31,7 @@ class ReadmeResultArtifactTest(unittest.TestCase):
         for name in (
             "ispd2005_convergence.png",
             "linkplace_component_layouts.png",
+            "dreamplace_final_layouts.png",
         ):
             path = ROOT / "assets" / "paper" / name
             self.assertTrue(path.is_file(), name)
