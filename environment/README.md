@@ -5,7 +5,8 @@ reproduction additionally requires a CUDA-enabled PyTorch build compatible
 with the host NVIDIA driver.
 
 For an exact source-machine snapshot, run the provided capture script with the
-same Python interpreter and activated environment used for the formal runs:
+same Python interpreter used for the formal runs. If the environment is managed
+by Conda, ensure that the `conda` executable is available on `PATH`:
 
 ```bash
 python tools/export_environment.py --output environment

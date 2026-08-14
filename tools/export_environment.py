@@ -32,7 +32,8 @@ def run(command: list[str]) -> tuple[int, str]:
 
 
 def write(path: Path, text: str) -> None:
-    path.write_text(text, encoding="utf-8", newline="\n")
+    with path.open("w", encoding="utf-8", newline="\n") as stream:
+        stream.write(text)
 
 
 def optional_command(output: Path, command: list[str]) -> None:
@@ -92,17 +93,24 @@ def main() -> int:
         )
 
     optional_command(output / "nvidia-smi.txt", ["nvidia-smi"])
-    optional_command(output / "conda-explicit.txt", ["conda", "list", "--explicit"])
+    optional_command(
+        output / "conda-explicit.txt",
+        ["conda", "list", "--prefix", sys.prefix, "--explicit"],
+    )
     if shutil.which("conda") is None:
         write(output / "conda-environment.yml", "UNAVAILABLE: conda was not found on PATH.\n")
     else:
-        code, conda_yaml = run(["conda", "env", "export", "--no-builds"])
+        code, conda_yaml = run(
+            ["conda", "env", "export", "--prefix", sys.prefix, "--no-builds"]
+        )
         if code == 0:
             write(output / "conda-environment.yml", sanitize_conda_yaml(conda_yaml))
         else:
             write(
                 output / "conda-environment.yml",
-                f"COMMAND FAILED ({code}): conda env export --no-builds\n{conda_yaml}",
+                "COMMAND FAILED "
+                f"({code}): conda env export --prefix {sys.prefix} --no-builds\n"
+                f"{conda_yaml}",
             )
 
     names = (

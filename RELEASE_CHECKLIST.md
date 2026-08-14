@@ -17,7 +17,11 @@
 - [x] Author and repository metadata are recorded in `CITATION.cff`.
 - [x] Exact Ariane LinkPlace-M five-seed records are published as path-free CSV.
 - [x] A path-sanitized environment capture tool is provided.
+- [x] LinkPlace, postprocessing, and DREAMPlace source-machine environment
+  snapshots have been captured for review before publication.
 - [x] Git is initialized and the public remote is configured.
+- [x] The public `main` branch is synchronized with the remote repository.
+- [x] The unit suite passes in the GitHub Actions Python 3.10 environment.
 
 ## Required before a licensed archival release
 
@@ -26,9 +30,8 @@
   implemented and verified code.
 - [ ] After resolving that dependency, choose and add a compatible `LICENSE`.
 - [ ] Add the final paper DOI to `CITATION.cff` when assigned.
-- [ ] Run `tools/export_environment.py` in the formal server environment and
-  commit the generated text snapshot under `environment/`.
-- [ ] Run the unit suite in a fresh Python 3.10 environment with dependencies.
+- [ ] Review the source-machine environment snapshots for host-specific or
+  sensitive metadata, then publish the approved text files under `environment/`.
 - [ ] Run one documented CUDA smoke test with a legally obtained benchmark.
 - [ ] After the redistribution terms are resolved, publish the immutable
   artifact archive and record its DOI and SHA-256 manifest in the README.
