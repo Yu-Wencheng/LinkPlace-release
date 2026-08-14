@@ -56,7 +56,7 @@ python -m linkplace.runner --cache-root datasets/cache inspect adaptec1
 <!-- README_RESULTS:BEGIN -->
 ## Results reported in the paper
 
-The paper calls the two variants **CoDePlace** and **Monolithic PPO**; this public release uses **LinkPlace-C** and **LinkPlace-M**, respectively. The tables below reproduce the manuscript results first. Published-reference rows retain the precision reported by their cited papers, while LinkPlace rows are five-seed results from seeds `999–1003`. Lower HPWL and RUDY are better, and `±` denotes sample standard deviation.
+The paper calls the two variants **CoDePlace** and **Monolithic PPO**; this public release uses **LinkPlace-C** and **LinkPlace-M**, respectively. The tables below reproduce the manuscript results first. Published-reference rows retain the precision reported by their cited papers, while LinkPlace rows summarize five independent runs. Lower HPWL and RUDY are better, and `±` denotes sample standard deviation.
 
 ### ISPD2005 MacroHPWL
 
@@ -92,7 +92,7 @@ Bigblue2 and bigblue4 use the EGPlace-selected 1,024-macro subsets and are there
 
 [![ISPD2005 convergence curves](assets/paper/ispd2005_convergence.png)](assets/paper/ispd2005_convergence.png)
 
-**Paper figure — ISPD2005 convergence (seed 1000).** The x-axis is iterations. LinkPlace-C is a horizontal line at its validated final CompRes MacroHPWL; all other available curves are cumulative minima over retained legal layouts. WireMask-EA/adaptec4 and EfficientPlace/bigblue1 remain absent because their formal runs ended in preserved technical artifact failures.
+**Paper figure — ISPD2005 convergence for a representative run.** The x-axis is iterations. LinkPlace-C is a horizontal line at its validated final CompRes MacroHPWL; all other available curves are cumulative minima over retained legal layouts. WireMask-EA/adaptec4 and EfficientPlace/bigblue1 remain absent because their formal runs ended in preserved technical artifact failures.
 
 [![Component-colored LinkPlace-C layouts](assets/paper/linkplace_component_layouts.png)](assets/paper/linkplace_component_layouts.png)
 
@@ -112,7 +112,7 @@ Ariane is nearly monolithic: one component contains 931 of 932 macros. Values ar
 
 ### ICCAD2015-derived macro-only instances
 
-Values are MacroHPWL scaled by `1e8`. Published references are retained from EGPlace; LinkPlace cells include five-seed mean, sample standard deviation, and mean runtime.
+Values are MacroHPWL scaled by `1e8`. Published references are retained from EGPlace; LinkPlace cells include five-run mean, sample standard deviation, and mean runtime.
 
 | Method | superblue1 | superblue3 | superblue4 | superblue5 | superblue7 | superblue10 | superblue16 | superblue18 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -127,7 +127,7 @@ Values are MacroHPWL scaled by `1e8`. Published references are retained from EGP
 The placement grid generates every reported layout on the `448 × 448` action grid. A separate, fixed `224 × 224` evaluation grid then computes peak RUDY and the top-5% mean using the projected macro netlist. The evaluation grid does **not** alter the policy, placement order, reward, or component translation; it is an independent post-placement measurement stage.
 
 <details open>
-<summary><strong>Full five-seed RUDY table from the paper</strong></summary>
+<summary><strong>Full five-run RUDY table from the paper</strong></summary>
 
 | Circuit | LinkPlace-C peak | LinkPlace-M peak | LinkPlace-C top-5% | LinkPlace-M top-5% |
 |---|---:|---:|---:|---:|
@@ -155,7 +155,7 @@ Across the 17 matched circuits, LinkPlace-M has lower mean peak RUDY on 10 circu
 
 ### Controlled method and placement-grid ablation
 
-All three variants use seeds `999–1003` on both placement grids. Every RUDY value is still computed afterward by the same independent `224 × 224` evaluation grid. Each compact cell is `HPWL ×1e5; peak RUDY; legal runs`.
+All three variants are evaluated in five independent runs on both placement grids. Every RUDY value is still computed afterward by the same independent `224 × 224` evaluation grid. Each compact cell is `HPWL ×1e5; peak RUDY; legal runs`.
 
 <details open>
 <summary><strong>Full paper ablation table</strong></summary>
@@ -173,20 +173,20 @@ All three variants use seeds `999–1003` on both placement grids. Every RUDY va
 
 </details>
 
-LinkPlace-C has lower mean HPWL than LinkPlace-M on five of eight circuits at both resolutions. All-greedy produces 14/40 legal runs per grid; all 52 failed seed-level trials are retained as failures rather than converted into artificial HPWL values.
+LinkPlace-C has lower mean HPWL than LinkPlace-M on five of eight circuits at both resolutions. All-greedy produces 14/40 legal runs per grid; all 52 failed run-level trials are retained as failures rather than converted into artificial HPWL values.
 
 ### Best legal mixed-size placements
 
 The table reports the best legal full-design placement obtained for each completed circuit. Values are the exact physical-coordinate MacroHPWL after DREAMPlace 4.1.0 standard-cell placement, and each archive contains the final placement and its LinkPlace macro initialization.
 
-| Circuit | LinkPlace variant | Macro seed | Final full-design HPWL | Placement package |
-|---|---|---:|---:|---|
-| adaptec1 | LinkPlace-C | 999 | 70,851,633 | [download](artifacts/mixed_size_best/adaptec1.zip) |
-| adaptec2 | LinkPlace-C | 999 | 93,710,386 | [download](artifacts/mixed_size_best/adaptec2.zip) |
-| adaptec3 | LinkPlace-C | 1002 | 138,080,476 | [download](artifacts/mixed_size_best/adaptec3.zip) |
-| adaptec4 | LinkPlace-C | 1000 | 150,406,856 | [download](artifacts/mixed_size_best/adaptec4.zip) |
-| bigblue1 | LinkPlace-M | 1000 | 84,204,736 | [download](artifacts/mixed_size_best/bigblue1.zip) |
-| bigblue3 | LinkPlace-C | 1002 | 274,468,869 | [download](artifacts/mixed_size_best/bigblue3.zip) |
+| Circuit | LinkPlace variant | Final full-design HPWL | Placement package |
+|---|---|---:|---|
+| adaptec1 | LinkPlace-C | 70,851,633 | [download](artifacts/mixed_size_best/adaptec1.zip) |
+| adaptec2 | LinkPlace-C | 93,710,386 | [download](artifacts/mixed_size_best/adaptec2.zip) |
+| adaptec3 | LinkPlace-C | 138,080,476 | [download](artifacts/mixed_size_best/adaptec3.zip) |
+| adaptec4 | LinkPlace-C | 150,406,856 | [download](artifacts/mixed_size_best/adaptec4.zip) |
+| bigblue1 | LinkPlace-M | 84,204,736 | [download](artifacts/mixed_size_best/bigblue1.zip) |
+| bigblue3 | LinkPlace-C | 274,468,869 | [download](artifacts/mixed_size_best/bigblue3.zip) |
 
 [Machine-readable summary](artifacts/mixed_size_best/summary.csv) · [SHA-256 checksums](artifacts/mixed_size_best/SHA256SUMS)
 
@@ -196,22 +196,22 @@ The table reports the best legal full-design placement obtained for each complet
 
 ## Additional server results not shown in the paper
 
-The following views expose server records that are too detailed for the manuscript: exact per-seed outcomes, same-code official-baseline comparisons, stochastic stability, and additional normalized plots. They do not replace the paper tables above.
+The following views expose server records that are too detailed for the manuscript: run-level outcomes, same-code official-baseline comparisons, stochastic stability, and additional normalized plots. They do not replace the paper tables above.
 
 ### Archived run coverage
 
 | Result family | Public records | Protocol | Terminal outcome |
 |---|---:|---|---|
-| LinkPlace-C main | 85 | 17 circuits × seeds 999–1003 | 85/85 complete legal layouts |
-| Dual-grid ablation | 240 | 8 ISPD2005 × 2 grids × 3 variants × 5 seeds | 188/240 legal; All-greedy failures retained |
-| LinkPlace-M ICCAD2015 | 40 | 8 circuits × seeds 999–1003 | 40/40 complete legal layouts |
-| Same-code official baselines | 24 | 3 methods × 8 ISPD2005 × seed 1000 | 22/24 legal; 2 technical failures retained |
+| LinkPlace-C main | 85 | 17 circuits × 5 runs | 85/85 complete legal layouts |
+| Dual-grid ablation | 240 | 8 ISPD2005 × 2 grids × 3 variants × 5 runs | 188/240 legal; All-greedy failures retained |
+| LinkPlace-M ICCAD2015 | 40 | 8 circuits × 5 runs | 40/40 complete legal layouts |
+| Same-code official baselines | 24 | 3 methods × 8 ISPD2005 × 1 run | 22/24 legal; 2 technical failures retained |
 
-### Same-code ISPD2005 comparison (seed 1000 baselines)
+### Same-code ISPD2005 comparison (official baseline runs)
 
 ![ISPD2005 normalized HPWL comparison](assets/results/ispd2005_hpwl_relative.svg)
 
-Exact CompRes MacroHPWL values are scaled by `1e5`. LinkPlace values are five-seed statistics; MaskPlace, WireMask-EA, and EfficientPlace are official implementations run once with seed `1000`.
+Exact CompRes MacroHPWL values are scaled by `1e5`. LinkPlace values are five-run statistics; MaskPlace, WireMask-EA, and EfficientPlace are official implementations evaluated once.
 
 | Circuit | LinkPlace-C | LinkPlace-M | Δ M vs C | MaskPlace | WireMask-EA | EfficientPlace |
 |---|---:|---:|---:|---:|---:|---:|
@@ -224,24 +224,24 @@ Exact CompRes MacroHPWL values are scaled by `1e5`. LinkPlace values are five-se
 | bigblue3 | 31.246 ± 0.642 | 32.369 ± 1.351 | +3.59% | 156.090 | 82.069 | 63.876 |
 | bigblue4 | 53.347 ± 0.535 | 52.891 ± 0.828 | -0.86% | 114.111 | 82.304 | 88.510 |
 
-### Additional ablation and seed-level visualizations
+### Additional ablation and run-level visualizations
 
 ![Grid ablation](assets/results/grid_ablation.svg)
 
-![Five-seed stability heatmap](assets/results/seed_stability.svg)
+![Five-run stability heatmap](assets/results/seed_stability.svg)
 
-The heatmap shows every public seed's HPWL deviation from its method/circuit mean, exposing stochastic spread hidden by mean ± standard deviation.
+The heatmap shows every public run's HPWL deviation from its method/circuit mean, exposing stochastic spread hidden by mean ± standard deviation.
 
 ![RUDY relative changes](assets/results/rudy_relative_delta.svg)
 
-This normalized plot compares matched LinkPlace-C/LinkPlace-M RUDY means on the 16 circuits with public seed-level records for both variants. Ariane is omitted only from this extra plot because the public snapshot currently carries its LinkPlace-M paper summary rather than its seed CSV.
+This normalized plot compares matched LinkPlace-C/LinkPlace-M RUDY means on the 16 circuits with public run-level records for both variants. Ariane is omitted only from this extra plot because the public snapshot currently carries its LinkPlace-M paper summary rather than its run-level CSV.
 
 ### Machine-readable server records
 
-- [LinkPlace-C: 85 per-seed records](artifacts/tables/main_seed_results.csv) and [17-circuit summary](artifacts/tables/main_mean_std.csv)
-- [Dual-grid ablation: 240 per-seed records](artifacts/tables/grid_ablation_five_seed_results.csv) and [48 summary rows](artifacts/tables/grid_ablation_five_seed_mean_std.csv)
-- [LinkPlace-M ICCAD2015: 40 per-seed records](artifacts/tables/linkplace_m_iccad2015_seed_results.csv) and [8-circuit summary](artifacts/tables/linkplace_m_iccad2015_mean_std.csv)
-- [Official baselines: 24 seed records](artifacts/tables/baseline_seed_results.csv), including the preserved WireMask-EA/adaptec4 and EfficientPlace/bigblue1 technical failures
+- [LinkPlace-C 17-circuit summary](artifacts/tables/main_mean_std.csv)
+- [Dual-grid ablation summary](artifacts/tables/grid_ablation_five_seed_mean_std.csv)
+- [LinkPlace-M ICCAD2015 8-circuit summary](artifacts/tables/linkplace_m_iccad2015_mean_std.csv)
+- [Official-baseline summary](artifacts/tables/baseline_mean_std.csv), including the preserved WireMask-EA/adaptec4 and EfficientPlace/bigblue1 technical failures
 
 Regenerate and verify the generated section and SVGs with:
 
@@ -255,9 +255,9 @@ python tools/render_readme_results.py --check
 
 The complete settings and result schema are frozen in
 [`docs/FORMAL_PROTOCOL.md`](docs/FORMAL_PROTOCOL.md) and
-[`configs/formal.json`](configs/formal.json). Formal runs use seeds
-999-1003, 1000 episodes, and a 448 x 448 grid; the grid ablation additionally
-uses 224 x 224.
+[`configs/formal.json`](configs/formal.json). Formal results use five fixed
+independent runs, 1000 episodes, and a 448 x 448 grid; the grid ablation
+additionally uses 224 x 224.
 
 Set environment variables only when paths differ from the defaults:
 

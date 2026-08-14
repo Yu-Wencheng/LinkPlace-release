@@ -37,6 +37,12 @@ class ReadmeResultArtifactTest(unittest.TestCase):
             self.assertTrue(path.is_file(), name)
             self.assertGreater(path.stat().st_size, 20_000, name)
 
+    def test_mixed_size_publication_omits_seed_identifiers(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        start = readme.index("### Best legal mixed-size placements")
+        end = readme.index("## Additional server results not shown in the paper")
+        self.assertNotIn("seed", readme[start:end].lower())
+
 
 if __name__ == "__main__":
     unittest.main()

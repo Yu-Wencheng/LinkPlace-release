@@ -27,6 +27,7 @@ class PublishedMixedSizeResultTest(unittest.TestCase):
         self.assertEqual({row["circuit"] for row in rows}, EXPECTED_CIRCUITS)
         self.assertEqual(len(rows), len(EXPECTED_CIRCUITS))
         for row in rows:
+            self.assertNotIn("macro_seed", row)
             self.assertEqual(row["legal"], "true")
             self.assertGreater(int(row["final_full_design_hpwl"]), 0)
             archive = ARTIFACTS / row["package"]

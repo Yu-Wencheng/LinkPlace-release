@@ -235,7 +235,7 @@ def render_ispd_comparison(grid_summary: list[dict[str, str]], baselines: list[d
     grid = indexed(grid_summary, "grid", "benchmark", "variant")
     baseline = indexed(baselines, "method", "benchmark")
     methods = ["linkplace-c", "linkplace-m", "maskplace", "wiremask", "efficientplace"]
-    labels = ["LinkPlace-C (5 seeds)", "LinkPlace-M (5 seeds)", "MaskPlace (seed 1000)", "WireMask-EA (seed 1000)", "EfficientPlace (seed 1000)"]
+    labels = ["LinkPlace-C (5 runs)", "LinkPlace-M (5 runs)", "MaskPlace (1 run)", "WireMask-EA (1 run)", "EfficientPlace (1 run)"]
     values: dict[tuple[str, str], float | None] = {}
     for benchmark in ISPD:
         reference = number(grid[("448", benchmark, "linkplace-c")]["comp_res_hpwl_mean"])
@@ -254,7 +254,7 @@ def render_ispd_comparison(grid_summary: list[dict[str, str]], baselines: list[d
     y_max = math.ceil((maximum + 0.1) * 2) / 2
     body = [
         text(left, 38, "ISPD2005 CompRes MacroHPWL relative to LinkPlace-C", css="title"),
-        text(left, 66, "Five-seed means for LinkPlace; official baselines are single seed 1000. Lower is better.", css="subtitle"),
+        text(left, 66, "Five-run means for LinkPlace; official baselines are single runs. Lower is better.", css="subtitle"),
     ]
     for tick in range(int(y_max * 2) + 1):
         value = tick / 2
@@ -280,7 +280,7 @@ def render_ispd_comparison(grid_summary: list[dict[str, str]], baselines: list[d
         body += [rect(legend_x, legend_y - 13, 18, 12, fill=COLORS[method], radius=2), text(legend_x + 25, legend_y - 2, label, css="legend")]
         legend_x += 260
     body += [line(width - 160, legend_y - 12, width - 146, legend_y + 2, stroke=COLORS["failure"], width=2), line(width - 160, legend_y + 2, width - 146, legend_y - 12, stroke=COLORS["failure"], width=2), text(width - 138, legend_y - 2, "technical failure", css="legend")]
-    return svg_document(width, height, "ISPD2005 normalized HPWL comparison", "Grouped bars compare CompRes MacroHPWL ratios against the LinkPlace-C five-seed mean.", body)
+    return svg_document(width, height, "ISPD2005 normalized HPWL comparison", "Grouped bars compare CompRes MacroHPWL ratios against the LinkPlace-C five-run mean.", body)
 
 
 def render_grid_ablation(grid_summary: list[dict[str, str]]) -> str:
@@ -366,16 +366,16 @@ def render_seed_stability(main_seeds: list[dict[str, str]], grid_seeds: list[dic
     scale = max(5.0, math.ceil(max(abs(value) for value in list(c_dev.values()) + list(m_dev.values())) / 5) * 5)
     width, height = 1500, 970
     body = [
-        text(55, 38, "Five-seed HPWL stability", css="title"),
-        text(55, 66, f"Each cell is the seed's deviation from that method/circuit mean. Common color scale: ±{scale:.0f}%.", css="subtitle"),
+        text(55, 38, "Five-run HPWL stability", css="title"),
+        text(55, 66, f"Each cell is one run's deviation from that method/circuit mean. Common color scale: ±{scale:.0f}%.", css="subtitle"),
     ]
 
     def panel(x0: float, title_value: str, benchmarks: list[str], values: dict[tuple[str, int], float]) -> None:
         label_w, cell_w, cell_h = 122, 92, 43
         y0 = 128
         body.append(text(x0, 101, title_value, css="label"))
-        for col, seed in enumerate(SEEDS):
-            body.append(text(x0 + label_w + col * cell_w + cell_w / 2, y0 - 12, seed, css="label", anchor="middle"))
+        for col, _seed in enumerate(SEEDS):
+            body.append(text(x0 + label_w + col * cell_w + cell_w / 2, y0 - 12, f"Run {col + 1}", css="label", anchor="middle"))
         for row_index, benchmark in enumerate(benchmarks):
             y = y0 + row_index * cell_h
             body.append(text(x0 + label_w - 10, y + 27, benchmark, css="label", anchor="end"))
@@ -388,9 +388,9 @@ def render_seed_stability(main_seeds: list[dict[str, str]], grid_seeds: list[dic
                 body.append(text(x + (cell_w - 4) / 2, y + 26, f"{value:+.1f}%", css="small", anchor="middle"))
 
     panel(40, "LinkPlace-C · 17 circuits · 85 runs", c_benchmarks, c_dev)
-    panel(790, "LinkPlace-M · 16 circuits · 80 public seed records", m_benchmarks, m_dev)
+    panel(790, "LinkPlace-M · 16 circuits · 80 public run records", m_benchmarks, m_dev)
     body += [rect(595, height - 48, 25, 14, fill=blend((37, 99, 235), 0.75), radius=2), text(628, height - 36, "below mean (lower HPWL)", css="legend"), rect(840, height - 48, 25, 14, fill=blend((249, 115, 22), 0.75), radius=2), text(873, height - 36, "above mean", css="legend")]
-    return svg_document(width, height, "Five-seed stability heatmap", "Heatmap shows seed-level HPWL deviations from each method and circuit mean.", body)
+    return svg_document(width, height, "Five-run stability heatmap", "Heatmap shows run-level HPWL deviations from each method and circuit mean.", body)
 
 
 def render_rudy_delta(main_summary: list[dict[str, str]], grid_summary: list[dict[str, str]], iccad_m_summary: list[dict[str, str]]) -> str:
@@ -413,7 +413,7 @@ def render_rudy_delta(main_summary: list[dict[str, str]], grid_summary: list[dic
     plot_w, plot_h = width - left - right, height - top - bottom
     body = [
         text(left, 38, "LinkPlace-M RUDY change relative to LinkPlace-C", css="title"),
-        text(left, 66, "Matched five-seed means on 16 circuits. Negative values favor LinkPlace-M; lower RUDY is better.", css="subtitle"),
+        text(left, 66, "Matched five-run means on 16 circuits. Negative values favor LinkPlace-M; lower RUDY is better.", css="subtitle"),
     ]
     for tick in range(-axis_max, axis_max + 1, 10):
         x = left + (tick + axis_max) / (2 * axis_max) * plot_w
@@ -433,8 +433,8 @@ def render_rudy_delta(main_summary: list[dict[str, str]], grid_summary: list[dic
                 body.append(circle(x, y + dy, 5.5, fill=color))
             else:
                 body.append(rect(x - 5, y + dy - 5, 10, 10, fill=color, radius=1))
-    body += [circle(left + 35, 91, 6, fill="#2563EB"), text(left + 50, 96, "Peak RUDY", css="legend"), rect(left + 180, 85, 12, 12, fill="#F97316", radius=1), text(left + 200, 96, "Top-5% mean", css="legend"), text(width - right, 96, "Ariane excluded: LinkPlace-M seed CSV is not in this public snapshot.", css="small", anchor="end")]
-    return svg_document(width, height, "RUDY relative change", "Dot plot compares LinkPlace-M and LinkPlace-C five-seed RUDY means per circuit.", body)
+    body += [circle(left + 35, 91, 6, fill="#2563EB"), text(left + 50, 96, "Peak RUDY", css="legend"), rect(left + 180, 85, 12, 12, fill="#F97316", radius=1), text(left + 200, 96, "Top-5% mean", css="legend"), text(width - right, 96, "Ariane excluded: LinkPlace-M run-level CSV is not in this public snapshot.", css="small", anchor="end")]
+    return svg_document(width, height, "RUDY relative change", "Dot plot compares LinkPlace-M and LinkPlace-C five-run RUDY means per circuit.", body)
 
 
 def fmt_scaled(row: dict[str, str], scale: float, mean_key: str = "comp_res_hpwl_mean", std_key: str = "comp_res_hpwl_std", digits: int = 3) -> str:
@@ -522,7 +522,7 @@ def markdown_section(
         "<!-- README_RESULTS:BEGIN -->",
         "## Results reported in the paper",
         "",
-        "The paper calls the two variants **CoDePlace** and **Monolithic PPO**; this public release uses **LinkPlace-C** and **LinkPlace-M**, respectively. The tables below reproduce the manuscript results first. Published-reference rows retain the precision reported by their cited papers, while LinkPlace rows are five-seed results from seeds `999–1003`. Lower HPWL and RUDY are better, and `±` denotes sample standard deviation.",
+        "The paper calls the two variants **CoDePlace** and **Monolithic PPO**; this public release uses **LinkPlace-C** and **LinkPlace-M**, respectively. The tables below reproduce the manuscript results first. Published-reference rows retain the precision reported by their cited papers, while LinkPlace rows summarize five independent runs. Lower HPWL and RUDY are better, and `±` denotes sample standard deviation.",
         "",
         "### ISPD2005 MacroHPWL",
         "",
@@ -556,7 +556,7 @@ def markdown_section(
         "",
         "[![ISPD2005 convergence curves](assets/paper/ispd2005_convergence.png)](assets/paper/ispd2005_convergence.png)",
         "",
-        "**Paper figure — ISPD2005 convergence (seed 1000).** The x-axis is iterations. LinkPlace-C is a horizontal line at its validated final CompRes MacroHPWL; all other available curves are cumulative minima over retained legal layouts. WireMask-EA/adaptec4 and EfficientPlace/bigblue1 remain absent because their formal runs ended in preserved technical artifact failures.",
+        "**Paper figure — ISPD2005 convergence for a representative run.** The x-axis is iterations. LinkPlace-C is a horizontal line at its validated final CompRes MacroHPWL; all other available curves are cumulative minima over retained legal layouts. WireMask-EA/adaptec4 and EfficientPlace/bigblue1 remain absent because their formal runs ended in preserved technical artifact failures.",
         "",
         "[![Component-colored LinkPlace-C layouts](assets/paper/linkplace_component_layouts.png)](assets/paper/linkplace_component_layouts.png)",
         "",
@@ -576,7 +576,7 @@ def markdown_section(
         "",
         "### ICCAD2015-derived macro-only instances",
         "",
-        "Values are MacroHPWL scaled by `1e8`. Published references are retained from EGPlace; LinkPlace cells include five-seed mean, sample standard deviation, and mean runtime.",
+        "Values are MacroHPWL scaled by `1e8`. Published references are retained from EGPlace; LinkPlace cells include five-run mean, sample standard deviation, and mean runtime.",
         "",
         "| Method | " + " | ".join(ICCAD) + " |",
         "|---|" + "---:|" * len(ICCAD),
@@ -594,7 +594,7 @@ def markdown_section(
         "The placement grid generates every reported layout on the `448 × 448` action grid. A separate, fixed `224 × 224` evaluation grid then computes peak RUDY and the top-5% mean using the projected macro netlist. The evaluation grid does **not** alter the policy, placement order, reward, or component translation; it is an independent post-placement measurement stage.",
         "",
         "<details open>",
-        "<summary><strong>Full five-seed RUDY table from the paper</strong></summary>",
+        "<summary><strong>Full five-run RUDY table from the paper</strong></summary>",
         "",
         "| Circuit | LinkPlace-C peak | LinkPlace-M peak | LinkPlace-C top-5% | LinkPlace-M top-5% |",
         "|---|---:|---:|---:|---:|",
@@ -631,7 +631,7 @@ def markdown_section(
         "",
         "### Controlled method and placement-grid ablation",
         "",
-        "All three variants use seeds `999–1003` on both placement grids. Every RUDY value is still computed afterward by the same independent `224 × 224` evaluation grid. Each compact cell is `HPWL ×1e5; peak RUDY; legal runs`.",
+        "All three variants are evaluated in five independent runs on both placement grids. Every RUDY value is still computed afterward by the same independent `224 × 224` evaluation grid. Each compact cell is `HPWL ×1e5; peak RUDY; legal runs`.",
         "",
         "<details open>",
         "<summary><strong>Full paper ablation table</strong></summary>",
@@ -654,20 +654,20 @@ def markdown_section(
         "",
         "</details>",
         "",
-        "LinkPlace-C has lower mean HPWL than LinkPlace-M on five of eight circuits at both resolutions. All-greedy produces 14/40 legal runs per grid; all 52 failed seed-level trials are retained as failures rather than converted into artificial HPWL values.",
+        "LinkPlace-C has lower mean HPWL than LinkPlace-M on five of eight circuits at both resolutions. All-greedy produces 14/40 legal runs per grid; all 52 failed run-level trials are retained as failures rather than converted into artificial HPWL values.",
         "",
         "### Best legal mixed-size placements",
         "",
         "The table reports the best legal full-design placement obtained for each completed circuit. Values are the exact physical-coordinate MacroHPWL after DREAMPlace 4.1.0 standard-cell placement, and each archive contains the final placement and its LinkPlace macro initialization.",
         "",
-        "| Circuit | LinkPlace variant | Macro seed | Final full-design HPWL | Placement package |",
-        "|---|---|---:|---:|---|",
+        "| Circuit | LinkPlace variant | Final full-design HPWL | Placement package |",
+        "|---|---|---:|---|",
     ]
     for row in mixed_size_best:
         hpwl = f'{int(row["final_full_design_hpwl"]):,}'
         package = row["package"]
         output.append(
-            f'| {row["circuit"]} | {row["linkplace_variant"]} | {row["macro_seed"]} | '
+            f'| {row["circuit"]} | {row["linkplace_variant"]} | '
             f'{hpwl} | [download](artifacts/mixed_size_best/{package}) |'
         )
     output += [
@@ -680,22 +680,22 @@ def markdown_section(
         "",
         "## Additional server results not shown in the paper",
         "",
-        "The following views expose server records that are too detailed for the manuscript: exact per-seed outcomes, same-code official-baseline comparisons, stochastic stability, and additional normalized plots. They do not replace the paper tables above.",
+        "The following views expose server records that are too detailed for the manuscript: run-level outcomes, same-code official-baseline comparisons, stochastic stability, and additional normalized plots. They do not replace the paper tables above.",
         "",
         "### Archived run coverage",
         "",
         "| Result family | Public records | Protocol | Terminal outcome |",
         "|---|---:|---|---|",
-        f"| LinkPlace-C main | {len(main_seeds)} | 17 circuits × seeds 999–1003 | 85/85 complete legal layouts |",
-        f"| Dual-grid ablation | {len(grid_seeds)} | 8 ISPD2005 × 2 grids × 3 variants × 5 seeds | {legal_grid}/{len(grid_seeds)} legal; All-greedy failures retained |",
-        f"| LinkPlace-M ICCAD2015 | {len(iccad_m_seeds)} | 8 circuits × seeds 999–1003 | 40/40 complete legal layouts |",
-        f"| Same-code official baselines | {len(baseline_seeds)} | 3 methods × 8 ISPD2005 × seed 1000 | {legal_baselines}/{len(baseline_seeds)} legal; 2 technical failures retained |",
+        f"| LinkPlace-C main | {len(main_seeds)} | 17 circuits × 5 runs | 85/85 complete legal layouts |",
+        f"| Dual-grid ablation | {len(grid_seeds)} | 8 ISPD2005 × 2 grids × 3 variants × 5 runs | {legal_grid}/{len(grid_seeds)} legal; All-greedy failures retained |",
+        f"| LinkPlace-M ICCAD2015 | {len(iccad_m_seeds)} | 8 circuits × 5 runs | 40/40 complete legal layouts |",
+        f"| Same-code official baselines | {len(baseline_seeds)} | 3 methods × 8 ISPD2005 × 1 run | {legal_baselines}/{len(baseline_seeds)} legal; 2 technical failures retained |",
         "",
-        "### Same-code ISPD2005 comparison (seed 1000 baselines)",
+        "### Same-code ISPD2005 comparison (official baseline runs)",
         "",
         "![ISPD2005 normalized HPWL comparison](assets/results/ispd2005_hpwl_relative.svg)",
         "",
-        "Exact CompRes MacroHPWL values are scaled by `1e5`. LinkPlace values are five-seed statistics; MaskPlace, WireMask-EA, and EfficientPlace are official implementations run once with seed `1000`.",
+        "Exact CompRes MacroHPWL values are scaled by `1e5`. LinkPlace values are five-run statistics; MaskPlace, WireMask-EA, and EfficientPlace are official implementations evaluated once.",
         "",
         "| Circuit | LinkPlace-C | LinkPlace-M | Δ M vs C | MaskPlace | WireMask-EA | EfficientPlace |",
         "|---|---:|---:|---:|---:|---:|---:|",
@@ -722,24 +722,24 @@ def markdown_section(
 
     output += [
         "",
-        "### Additional ablation and seed-level visualizations",
+        "### Additional ablation and run-level visualizations",
         "",
         "![Grid ablation](assets/results/grid_ablation.svg)",
         "",
-        "![Five-seed stability heatmap](assets/results/seed_stability.svg)",
+        "![Five-run stability heatmap](assets/results/seed_stability.svg)",
         "",
-        "The heatmap shows every public seed's HPWL deviation from its method/circuit mean, exposing stochastic spread hidden by mean ± standard deviation.",
+        "The heatmap shows every public run's HPWL deviation from its method/circuit mean, exposing stochastic spread hidden by mean ± standard deviation.",
         "",
         "![RUDY relative changes](assets/results/rudy_relative_delta.svg)",
         "",
-        "This normalized plot compares matched LinkPlace-C/LinkPlace-M RUDY means on the 16 circuits with public seed-level records for both variants. Ariane is omitted only from this extra plot because the public snapshot currently carries its LinkPlace-M paper summary rather than its seed CSV.",
+        "This normalized plot compares matched LinkPlace-C/LinkPlace-M RUDY means on the 16 circuits with public run-level records for both variants. Ariane is omitted only from this extra plot because the public snapshot currently carries its LinkPlace-M paper summary rather than its run-level CSV.",
         "",
         "### Machine-readable server records",
         "",
-        "- [LinkPlace-C: 85 per-seed records](artifacts/tables/main_seed_results.csv) and [17-circuit summary](artifacts/tables/main_mean_std.csv)",
-        "- [Dual-grid ablation: 240 per-seed records](artifacts/tables/grid_ablation_five_seed_results.csv) and [48 summary rows](artifacts/tables/grid_ablation_five_seed_mean_std.csv)",
-        "- [LinkPlace-M ICCAD2015: 40 per-seed records](artifacts/tables/linkplace_m_iccad2015_seed_results.csv) and [8-circuit summary](artifacts/tables/linkplace_m_iccad2015_mean_std.csv)",
-        "- [Official baselines: 24 seed records](artifacts/tables/baseline_seed_results.csv), including the preserved WireMask-EA/adaptec4 and EfficientPlace/bigblue1 technical failures",
+        "- [LinkPlace-C 17-circuit summary](artifacts/tables/main_mean_std.csv)",
+        "- [Dual-grid ablation summary](artifacts/tables/grid_ablation_five_seed_mean_std.csv)",
+        "- [LinkPlace-M ICCAD2015 8-circuit summary](artifacts/tables/linkplace_m_iccad2015_mean_std.csv)",
+        "- [Official-baseline summary](artifacts/tables/baseline_mean_std.csv), including the preserved WireMask-EA/adaptec4 and EfficientPlace/bigblue1 technical failures",
         "",
         "Regenerate and verify the generated section and SVGs with:",
         "",

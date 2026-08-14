@@ -11,7 +11,7 @@ Each circuit archive contains:
   by the mixed-size flow.
 
 The public summary in [`summary.csv`](summary.csv) records the LinkPlace
-variant, macro seed, final MacroHPWL, legality status, and source-artifact
-hashes.  [`SHA256SUMS`](SHA256SUMS) provides hashes for the downloadable
-archives.  ISPD2005 benchmark inputs are not redistributed; obtain them from
-the official benchmark source when loading these placements.
+variant, final MacroHPWL, legality status, and source-artifact hashes.
+[`SHA256SUMS`](SHA256SUMS) provides hashes for the downloadable archives.
+ISPD2005 benchmark inputs are not redistributed; obtain them from the official
+benchmark source when loading these placements.

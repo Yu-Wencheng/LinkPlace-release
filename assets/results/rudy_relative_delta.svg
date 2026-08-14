@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850" role="img" aria-labelledby="title desc">
   <title id="title">RUDY relative change</title>
-  <desc id="desc">Dot plot compares LinkPlace-M and LinkPlace-C five-seed RUDY means per circuit.</desc>
+  <desc id="desc">Dot plot compares LinkPlace-M and LinkPlace-C five-run RUDY means per circuit.</desc>
   <style>text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; fill: #0F172A; }
     .title { font-size: 27px; font-weight: 700; }
     .subtitle { font-size: 15px; fill: #475569; }
@@ -11,7 +11,7 @@
     .legend { font-size: 13px; font-weight: 600; }</style>
   <rect width="1400" height="850" fill="#FFFFFF"/>
   <text x="180.00" y="38.00" class="title" text-anchor="start">LinkPlace-M RUDY change relative to LinkPlace-C</text>
-  <text x="180.00" y="66.00" class="subtitle" text-anchor="start">Matched five-seed means on 16 circuits. Negative values favor LinkPlace-M; lower RUDY is better.</text>
+  <text x="180.00" y="66.00" class="subtitle" text-anchor="start">Matched five-run means on 16 circuits. Negative values favor LinkPlace-M; lower RUDY is better.</text>
   <line x1="180.00" y1="110.00" x2="180.00" y2="780.00" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
   <text x="180.00" y="806.00" class="axis" text-anchor="middle">-30%</text>
   <line x1="372.50" y1="110.00" x2="372.50" y2="780.00" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
@@ -111,5 +111,5 @@
   <text x="230.00" y="96.00" class="legend" text-anchor="start">Peak RUDY</text>
   <rect x="360.00" y="85.00" width="12.00" height="12.00" rx="1" fill="#F97316"/>
   <text x="380.00" y="96.00" class="legend" text-anchor="start">Top-5% mean</text>
-  <text x="1335.00" y="96.00" class="small" text-anchor="end">Ariane excluded: LinkPlace-M seed CSV is not in this public snapshot.</text>
+  <text x="1335.00" y="96.00" class="small" text-anchor="end">Ariane excluded: LinkPlace-M run-level CSV is not in this public snapshot.</text>
 </svg>
