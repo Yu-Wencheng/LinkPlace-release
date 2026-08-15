@@ -98,6 +98,18 @@ Bigblue2 and bigblue4 use the EGPlace-selected 1,024-macro subsets and are there
 
 **Paper figure — best LinkPlace-C layouts for adaptec3 and adaptec4.** Macros in the same connectivity component share a color.
 
+### Best-of-five macro layouts
+
+For each circuit below, the gallery shows the final legal layout with the lowest MacroHPWL among the five runs on the `448 × 448` placement grid.
+
+[![Best-of-five LinkPlace-M macro layouts](assets/paper/best_of_five_linkplace_m_layouts.png)](assets/paper/best_of_five_linkplace_m_layouts.png)
+
+**LinkPlace-M.** Best-of-five layouts for adaptec1–adaptec4, bigblue1, and bigblue3.
+
+[![Best-of-five component-colored LinkPlace-C macro layouts](assets/paper/best_of_five_linkplace_c_layouts.png)](assets/paper/best_of_five_linkplace_c_layouts.png)
+
+**LinkPlace-C.** Best-of-five layouts for the same six circuits. Macros belonging to the same connected component share a color; different components use different colors, following the visualization convention of the paper.
+
 ### Ariane
 
 Ariane is nearly monolithic: one component contains 931 of 932 macros. Values are MacroHPWL scaled by `1e5`.

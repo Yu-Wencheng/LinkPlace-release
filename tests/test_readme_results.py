@@ -31,11 +31,20 @@ class ReadmeResultArtifactTest(unittest.TestCase):
         for name in (
             "ispd2005_convergence.png",
             "linkplace_component_layouts.png",
+            "best_of_five_linkplace_m_layouts.png",
+            "best_of_five_linkplace_c_layouts.png",
             "dreamplace_final_layouts.png",
         ):
             path = ROOT / "assets" / "paper" / name
             self.assertTrue(path.is_file(), name)
             self.assertGreater(path.stat().st_size, 20_000, name)
+
+    def test_best_of_five_layout_galleries_are_documented(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("### Best-of-five macro layouts", readme)
+        self.assertIn("best_of_five_linkplace_m_layouts.png", readme)
+        self.assertIn("best_of_five_linkplace_c_layouts.png", readme)
+        self.assertIn("same connected component share a color", readme)
 
     def test_mixed_size_publication_omits_seed_identifiers(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
